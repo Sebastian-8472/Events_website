@@ -52,13 +52,16 @@ def scrape_cinema(url, cinema_name):
         
     return events
 
-# NUOVA FUNZIONE: Crea un file di testo separato con la lista
 def save_events_to_file(events):
-    with open("events_list.txt", "w", encoding="utf-8") as f:
-        for e in events:
-            line = f'title: "{e["title"]}", day: "{e["day"]}", month: "{e["month"]}", url: {e["url"]}\n'
-            f.write(line)
-    print("Dati salvati in events_list.txt")
+    try:
+        with open("events_list.txt", "w", encoding="utf-8") as f:
+            for e in events:
+                # Formato richiesto: title: "Flood", day: "25", month: "February", url: link
+                line = f'title: "{e["title"]}", day: "{e["day"]}", month: "{e["month"]}", url: {e["url"]}\n'
+                f.write(line)
+        print("Successfully created events_list.txt")
+    except Exception as e:
+        print(f"Error creating txt file: {e}")
 
 def generate_html(events):
     # Ordinamento cronologico
@@ -166,8 +169,10 @@ def generate_html(events):
 if __name__ == "__main__":
     all_events = []
     all_events += scrape_cinema("https://www.kinoart.cz/en/cycles/expat-friendly", "Kino Art")
-    all_events += scrape_cinema("https://www.kinoscala.cz/en/programme", "Kino Scala")
+    #all_events += scrape_cinema("https://www.kinoscala.cz/en/programme", "Kino Scala")
     
-    # Genera entrambi i file
-    generate_html(all_events)
-    save_events_to_file(all_events)
+    if all_events:
+        generate_html(all_events)
+        save_events_to_file(all_events)
+    else:
+        print("No events found, skipping file generation.")
