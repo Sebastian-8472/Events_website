@@ -1,156 +1,92 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-from datetime import datetime
-
-# 1. DEFINIZIONE DELLA FUNZIONE (Deve accettare i 2 parametri)
-def scrape_cinema(url, cinema_name):
-    headers = {'User-Agent': 'Mozilla/5.0'}
+def scrape_kino_art():
+    url = "https://www.kinoart.cz/en/cycles/expat-friendly"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
     events = []
     
-    month_map = {
-        "1": "February", "2": "February", "3": "March", "4": "April",
-        "5": "May", "6": "June", "7": "July", "8": "August", "9": "September",
-        "01": "January", "02": "February", "03": "March", "04": "April",
-        "05": "May", "06": "June", "07": "July", "08": "August",
-        "09": "September", "10": "October", "11": "November", "12": "December"
-    }
-
-    try:
-        response = requests.get(url, headers=headers, timeout=15)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Selettore specifico per Kino Art e Scala
-        items = soup.find_all('div', class_='m-program-item')
-
-        for item in items:
-            title = item.find('h3', class_='m-program-item__title').text.strip()
-            date_raw = item.find('div', class_='m-program-item__date').text.strip()
-            link_el = item.find('a', class_='m-program-item__link')
+    # Kino Art uses specific classes for their program items
+    # Note: If they change their website layout, these selectors might need a tweak
+    for item in soup.select('.program-item'):
+        try:
+            title = item.select_one('.program-item__title').text.strip()
+            date_raw = item.select_one('.program-item__date').text.strip() # e.g. "19. February"
+            link = "https://www.kinoart.cz" + item.select_one('a')['href']
             
-            base_url = "https://www.kinoart.cz" if "kinoart" in url else "https://www.kinoscala.cz"
-            full_link = base_url + link_el['href'] if link_el else url
-
-            # Parsing data: "19. 2." o "19. February"
-            parts = date_raw.split('.')
-            day = parts[0].strip().zfill(2)
-            month_part = parts[1].strip()
-
-            if month_part.isdigit():
-                month_name = month_map.get(month_part.zfill(2), "Unknown")
-            else:
-                month_name = month_part # Assume sia già il nome del mese in inglese
-
+            day = date_raw.split('.')[0].strip()
+            month = date_raw.split('.')[1].strip()
+            
             events.append({
                 "title": title,
                 "day": day,
-                "month": month_name,
-                "url": full_link,
-                "cinema": cinema_name
+                "month": month,
+                "url": link
             })
-    except Exception as e:
-        print(f"Error scraping {cinema_name}: {e}")
-        
+        except Exception:
+            continue
+            
     return events
-
-# 2. GENERAZIONE HTML (Crea i pulsanti All, February, March, etc. in automatico)
+# This part generates the HTML file with the data injected
 def generate_html(events):
-    events_json = json.dumps(events, indent=4)
-    
-    # Crea lista mesi unici per i pulsanti
-    months_in_data = sorted(list(set(e['month'] for e in events if e['month'] != "Unknown")), 
-                            key=lambda x: datetime.strptime(x, "%B"))
-
-    filter_buttons = '<button class="filter-btn active" onclick="filterEvents(\'all\')">All</button>'
-    for m in months_in_data:
-        filter_buttons += f'\n            <button class="filter-btn" onclick="filterEvents(\'{m}\')">{m}</button>'
-
-    html_content = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kino Art - Upcoming English Friendly Screenings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {{ --bec-red: #e30613; --bec-dark: #333333; --bec-gray: #f4f4f4; --bec-text: #4a4a4a; --transition: all 0.3s ease; }}
-        body {{ font-family: 'Open Sans', sans-serif; background-color: #fff; color: var(--bec-text); margin: 0; padding: 40px 20px; }}
-        .container {{ max-width: 900px; margin: 0 auto; }}
-        header {{ margin-bottom: 40px; text-align: left; }}
-        h1 {{ font-family: 'Montserrat', sans-serif; color: var(--bec-dark); font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -1px; }}
-        .accent-line {{ width: 60px; height: 5px; background-color: var(--bec-red); margin-bottom: 30px; }}
-        .filters {{ margin-bottom: 30px; display: flex; gap: 10px; flex-wrap: wrap; }}
-        .filter-btn {{ padding: 8px 18px; border: 2px solid var(--bec-gray); background: white; cursor: pointer; font-weight: 600; border-radius: 20px; transition: var(--transition); }}
-        .filter-btn.active, .filter-btn:hover {{ background-color: var(--bec-red); color: white; border-color: var(--bec-red); }}
-        .event-list {{ display: flex; flex-direction: column; gap: 15px; }}
-        .event-card {{ display: flex; align-items: center; background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 8px; transition: var(--transition); text-decoration: none; color: inherit; }}
-        .event-card:hover {{ transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--bec-red); }}
-        .event-date {{ min-width: 90px; text-align: center; border-right: 2px solid var(--bec-gray); margin-right: 25px; padding-right: 15px; }}
-        .date-day {{ display: block; font-size: 1.8rem; font-weight: 700; color: var(--bec-dark); line-height: 1; }}
-        .date-month {{ display: block; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; color: var(--bec-red); }}
-        .event-info {{ flex-grow: 1; }}
-        .event-category {{ font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #999; margin-bottom: 4px; }}
-        .event-title {{ font-family: 'Montserrat', sans-serif; font-size: 1.25rem; color: var(--bec-dark); margin: 0; font-weight: 700; }}
-        .btn-tickets {{ background-color: var(--bec-gray); color: var(--bec-dark); padding: 10px 15px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; transition: var(--transition); }}
-        .event-card:hover .btn-tickets {{ background-color: var(--bec-red); color: white; }}
-        @media (max-width: 600px) {{ .event-card {{ flex-direction: column; align-items: flex-start; }} .event-date {{ border-right: none; border-bottom: 2px solid var(--bec-gray); margin-bottom: 15px; width: 100%; text-align: left; }} .btn-tickets {{ margin-top: 15px; display: inline-block; }} }}
-    </style>
-</head>
-<body>
-<div class="container">
-    <header>
-        <h1>Cinema Program</h1>
-        <div class="accent-line"></div>
-        <div class="filters">
-            {filter_buttons}
+    events_json = json.dumps(events)
+    html_template = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kino Art Expat Program</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            :root {{ --bec-red: #e30613; --bec-dark: #333; --bec-gray: #f4f4f4; }}
+            body {{ font-family: 'Open Sans', sans-serif; padding: 40px; color: #4a4a4a; }}
+            .container {{ max-width: 800px; margin: 0 auto; }}
+            .search-bar {{ width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid var(--bec-gray); border-radius: 8px; font-size: 1rem; }}
+            .event-card {{ display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #eee; text-decoration: none; color: inherit; transition: 0.2s; }}
+            .event-card:hover {{ background: #fffcfc; border-left: 4px solid var(--bec-red); padding-left: 11px; }}
+            .date-box {{ min-width: 80px; text-align: center; }}
+            .day {{ display: block; font-size: 1.5rem; font-weight: 700; color: var(--bec-red); }}
+            .month {{ font-size: 0.8rem; text-transform: uppercase; font-weight: 600; }}
+            .title {{ font-family: 'Montserrat'; font-size: 1.1rem; margin-left: 20px; flex-grow: 1; }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Expat Friendly Cinema</h1>
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search for a movie..." onkeyup="search()">
+            <div id="list"></div>
         </div>
-    </header>
-    <div class="event-list" id="eventList"></div>
-</div>
 <script>
-    const events = {events_json};
-    function displayEvents(filter) {{
-        const list = document.getElementById('eventList');
-        list.innerHTML = '';
-        const filtered = filter === 'all' ? events : events.filter(e => e.month === filter);
-        filtered.forEach(event => {{
-            const card = document.createElement('a');
-            card.className = 'event-card';
-            card.href = event.url;
-            card.target = "_blank";
-            card.innerHTML = `
-                <div class="event-date">
-                    <span class="date-day">${{event.day}}</span>
-                    <span class="date-month">${{event.month.substring(0,3)}}</span>
-                </div>
-                <div class="event-info">
-                    <div class="event-category">${{event.cinema}} • English Friendly</div>
-                    <h2 class="event-title">${{event.title}}</h2>
-                </div>
-                <div class="btn-tickets">Tickets</div>
-            `;
-            list.appendChild(card);
-        }});
-    }}
-    function filterEvents(month) {{
-        document.querySelectorAll('.filter-btn').forEach(btn => {{
-            btn.classList.remove('active');
-            if(btn.innerText === month || (month === 'all' && btn.innerText === 'All')) btn.classList.add('active');
-        }});
-        displayEvents(month);
-    }}
-    displayEvents('all');
-</script>
-</body>
-</html>"""
-    
-    with open("index.html", "w", encoding="utf-8") as f:
-        f.write(html_content)
+            const events = {events_json};
+            
+            function render(data) {{
+                const list = document.getElementById('list');
+                list.innerHTML = data.map(e => `
+                    <a href="${{e.url}}" class="event-card" target="_blank">
+                        <div class="date-box">
+                            <span class="day">${{e.day}}</span>
+                            <span class="month">${{e.month}}</span>
+                        </div>
+                        <div class="title">${{e.title}}</div>
+                        <div style="color:var(--bec-red); font-weight:bold;">→</div>
+                    </a>
+                `).join('');
+            }}
 
-# 3. ESECUZIONE
-if __name__ == "__main__":
-    all_events = []
-    all_events += scrape_cinema("https://www.kinoart.cz/en/cycles/expat-friendly", "Kino Art")
-    all_events += scrape_cinema("https://www.kinoscala.cz/en/programme", "Kino Scala")
-    
-    generate_html(all_events)
+function search() {{
+                const term = document.getElementById('searchInput').value.toLowerCase();
+                const filtered = events.filter(e => e.title.toLowerCase().includes(term));
+                render(filtered);
+            }}
+render(events);
+        </script>
+    </body>
+    </html>
+    """
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_template)
+data = scrape_kino_art()
+generate_html(data)
+print("Page updated successfully!")
