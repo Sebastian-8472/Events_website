@@ -1,174 +1,71 @@
+
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventi - Stile Brno Expat Centre</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Brno Cinema - Next 2 Months</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bec-red: #e30613;
-            --bec-dark: #333333;
-            --bec-gray: #f4f4f4;
-            --bec-text: #4a4a4a;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #ffffff;
-            color: var(--bec-text);
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--bec-dark);
-            font-size: 2.5rem;
-            border-bottom: 4px solid var(--bec-red);
-            display: inline-block;
-            margin-bottom: 40px;
-        }
-
-        .event-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .event-card {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-            transition: transform 0.2s;
-        }
-
-        .event-date {
-            min-width: 120px;
-            text-align: center;
-            padding-right: 20px;
-        }
-
-        .date-box {
-            background-color: var(--bec-gray);
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .date-day {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--bec-red);
-        }
-
-        .date-month {
-            display: block;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .event-content {
-            flex-grow: 1;
-        }
-
-        .event-category {
-            color: var(--bec-red);
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.8rem;
-            margin-bottom: 5px;
-        }
-
-        .event-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            color: var(--bec-dark);
-            margin: 0 0 10px 0;
-            text-decoration: none;
-            display: block;
-        }
-
-        .event-title:hover {
-            color: var(--bec-red);
-        }
-
-        .event-description {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .btn-more {
-            display: inline-block;
-            background-color: var(--bec-red);
-            color: white;
-            padding: 8px 20px;
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .btn-more:hover {
-            background-color: #b3050f;
-        }
-
-        @media (max-width: 600px) {
-            .event-card {
-                flex-direction: column;
-            }
-            .event-date {
-                text-align: left;
-                margin-bottom: 15px;
-            }
-        }
+        :root { --bec-red: #e30613; --bec-dark: #333; --bec-gray: #f4f4f4; }
+        body { font-family: 'Open Sans', sans-serif; background: #fff; margin: 0; padding: 20px; color: #4a4a4a; }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { border-bottom: 4px solid var(--bec-red); margin-bottom: 30px; padding-bottom: 10px; }
+        h1 { font-family: 'Montserrat'; text-transform: uppercase; margin: 0; font-size: 1.8rem; }
+        .view-label { color: #888; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px; display: block; }
+        
+        .event-card { display: flex; align-items: center; padding: 18px; border-bottom: 1px solid #eee; text-decoration: none; color: inherit; transition: 0.2s; }
+        .event-card:hover { background: var(--bec-gray); }
+        
+        .date-box { min-width: 70px; text-align: center; border-right: 2px solid var(--bec-red); margin-right: 20px; }
+        .day { display: block; font-size: 1.5rem; font-weight: 700; color: var(--bec-dark); }
+        .month { font-size: 0.8rem; text-transform: uppercase; color: var(--bec-red); font-weight: 700; }
+        
+        .title-area { flex-grow: 1; }
+        .title { font-family: 'Montserrat'; font-size: 1.1rem; display: block; font-weight: 700; }
+        .cinema-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; margin-top: 5px; color: white; }
+        .art { background: var(--bec-red); } .scala { background: #000; } .spalicek { background: #ff5a00; }
+        
+        .buy-btn { font-weight: bold; color: var(--bec-red); font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Prossimi Eventi</h1>
-
-    <div class="event-list">
-        
-        <div class="event-card">
-            <div class="event-date">
-                <div class="date-box">
-                    <span class="date-day">19</span>
-                    <span class="date-month">Feb</span>
-                </div>
-            </div>
-            <div class="event-content">
-                <div class="event-category">Workshop</div>
-                <a href="#" class="event-title">Supporto alla genitorialità Expat</a>
-                <p class="event-description">Un incontro dedicato alla gestione delle sfide quotidiane per i genitori che vivono all'estero.</p>
-                <a href="#" class="btn-more">Scopri di più</a>
-            </div>
-        </div>
-
-        <div class="event-card">
-            <div class="event-date">
-                <div class="date-box">
-                    <span class="date-day">12</span>
-                    <span class="date-month">Mag</span>
-                </div>
-            </div>
-            <div class="event-content">
-                <div class="event-category">Cultura</div>
-                <a href="#" class="event-title">JazzFest Brno 2026</a>
-                <p class="event-description">Il festival internazionale di jazz torna a Brno con artisti di fama mondiale.</p>
-                <a href="#" class="btn-more">Dettagli</a>
-            </div>
-        </div>
-
+    <div class="container">
+        <header><h1>Cinema Program</h1></header>
+        <span class="view-label">Upcoming events (Next 60 Days)</span>
+        <div id="eventList"></div>
     </div>
-</div>
 
+    <script>
+        const events = [{"title": "Check Cinema City Schedule", "date": "2026-12-31", "display_date": "Live", "url": "https://www.velkyspalicek.cz/", "cinema": "Velk\u00fd \u0160pal\u00ed\u010dek", "class": "spalicek"}];
+
+        function render() {
+            const list = document.getElementById('eventList');
+            const today = new Date();
+            const twoMonthsFromNow = new Date();
+            twoMonthsFromNow.setDate(today.getDate() + 60);
+
+            const filtered = events.filter(e => {
+                const d = new Date(e.date);
+                return d >= today && d <= twoMonthsFromNow;
+            });
+
+            list.innerHTML = filtered.map(e => `
+                <a href="${e.url}" class="event-card" target="_blank">
+                    <div class="date-box">
+                        <span class="day">${e.display_date.split('.')[0]}</span>
+                        <span class="month">${e.display_date.split(' ')[1]}</span>
+                    </div>
+                    <div class="title-area">
+                        <span class="title">${e.title}</span>
+                        <span class="cinema-tag ${e.class}">${e.cinema}</span>
+                    </div>
+                    <div class="buy-btn">TICKETS →</div>
+                </a>
+            `).join('');
+        }
+        render();
+    </script>
 </body>
 </html>
+    
