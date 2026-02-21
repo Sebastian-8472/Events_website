@@ -1,54 +1,174 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brno Cinema Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Eventi - Stile Brno Expat Centre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bec-red: #e30613; --bec-dark: #333; --bec-gray: #f4f4f4; }
-        body { font-family: 'Open Sans', sans-serif; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        .header { border-bottom: 4px solid var(--bec-red); margin-bottom: 20px; }
-        .search-bar { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #ddd; border-radius: 5px; }
-        .event-card { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #eee; text-decoration: none; color: inherit; transition: 0.2s; }
-        .event-card:hover { background: var(--bec-gray); }
-        .date-box { min-width: 60px; text-align: center; border-right: 2px solid var(--bec-red); margin-right: 15px; }
-        .cinema-badge { font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 5px; text-transform: uppercase; margin-top: 5px; display: inline-block; }
-        .scala { background: #000; color: #fff; }
-        .art { background: var(--bec-red); color: #fff; }
-        .spalicek { background: #ff5a00; color: #fff; }
-        .title { font-family: 'Montserrat'; font-size: 1.1rem; flex-grow: 1; }
+        :root {
+            --bec-red: #e30613;
+            --bec-dark: #333333;
+            --bec-gray: #f4f4f4;
+            --bec-text: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: var(--bec-text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--bec-dark);
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--bec-red);
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event-card {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .event-date {
+            min-width: 120px;
+            text-align: center;
+            padding-right: 20px;
+        }
+
+        .date-box {
+            background-color: var(--bec-gray);
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .date-day {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--bec-red);
+        }
+
+        .date-month {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .event-content {
+            flex-grow: 1;
+        }
+
+        .event-category {
+            color: var(--bec-red);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .event-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: var(--bec-dark);
+            margin: 0 0 10px 0;
+            text-decoration: none;
+            display: block;
+        }
+
+        .event-title:hover {
+            color: var(--bec-red);
+        }
+
+        .event-description {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .btn-more {
+            display: inline-block;
+            background-color: var(--bec-red);
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-more:hover {
+            background-color: #b3050f;
+        }
+
+        @media (max-width: 600px) {
+            .event-card {
+                flex-direction: column;
+            }
+            .event-date {
+                text-align: left;
+                margin-bottom: 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header"><h1>Brno Cinema Hub</h1></div>
-        <input type="text" id="searchInput" class="search-bar" placeholder="Search movies, cinemas, or dates..." onkeyup="filter()">
-        <div id="list"></div>
+
+<div class="container">
+    <h1>Prossimi Eventi</h1>
+
+    <div class="event-list">
+        
+        <div class="event-card">
+            <div class="event-date">
+                <div class="date-box">
+                    <span class="date-day">19</span>
+                    <span class="date-month">Feb</span>
+                </div>
+            </div>
+            <div class="event-content">
+                <div class="event-category">Workshop</div>
+                <a href="#" class="event-title">Supporto alla genitorialità Expat</a>
+                <p class="event-description">Un incontro dedicato alla gestione delle sfide quotidiane per i genitori che vivono all'estero.</p>
+                <a href="#" class="btn-more">Scopri di più</a>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">
+                <div class="date-box">
+                    <span class="date-day">12</span>
+                    <span class="date-month">Mag</span>
+                </div>
+            </div>
+            <div class="event-content">
+                <div class="event-category">Cultura</div>
+                <a href="#" class="event-title">JazzFest Brno 2026</a>
+                <p class="event-description">Il festival internazionale di jazz torna a Brno con artisti di fama mondiale.</p>
+                <a href="#" class="btn-more">Dettagli</a>
+            </div>
+        </div>
+
     </div>
-    <script>
-        const events = [];
-        function render(data) {
-            document.getElementById('list').innerHTML = data.map(e => `
-                <a href="${e.url}" class="event-card" target="_blank">
-                    <div class="date-box">
-                        <b style="font-size:1.4rem;">${e.day}</b><br><small>${e.month}</small>
-                    </div>
-                    <div class="title">
-                        ${e.title}<br>
-                        <span class="cinema-badge ${e.cinema.toLowerCase().split(' ')[0]}">${e.cinema}</span>
-                    </div>
-                    <div style="color:var(--bec-red)">TICKETS →</div>
-                </a>
-            `).join('');
-        }
-        function filter() {
-            const val = document.getElementById('searchInput').value.toLowerCase();
-            render(events.filter(e => e.title.toLowerCase().includes(val) || e.cinema.toLowerCase().includes(val)));
-        }
-        render(events);
-    </script>
+</div>
+
 </body>
 </html>
