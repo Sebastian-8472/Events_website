@@ -285,10 +285,16 @@ def generate_html(events):
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
 
+
 if __name__ == "__main__":
-    movie_data = scrape_cinema()
-    generate_html(movie_data)
-    all_events += scrape_cinema("https://www.kinoart.cz/en/programme", "Kino Art")
+    # CORREZIONE: Inizializza la lista prima di usarla
+    all_events = []
+    
+    # Esegui lo scraping
+    all_events += scrape_cinema("https://www.kinoart.cz/en/cycles/expat-friendly", "Kino Art")
     all_events += scrape_cinema("https://www.kinoscala.cz/en/programme", "Kino Scala")
+    all_events += scrape_cinema("https://www.kinoart.cz/en/programme", "Kino Art")
     all_events += scrape_cinema("https://www.velkyspalicek.cz/", "Velký Špalíček")
+    # Genera l'HTML passando la lista completa
+
     generate_html(all_events)
