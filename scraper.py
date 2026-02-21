@@ -154,7 +154,9 @@ def generate_html(events):
 if __name__ == "__main__":
     movie_data = scrape_cinema()
     generate_html(movie_data)
+    all_events = []
     all_events += scrape_cinema("https://www.kinoart.cz/en/programme", "Kino Art")
     all_events += scrape_cinema("https://www.kinoscala.cz/en/programme", "Kino Scala")
     all_events += scrape_cinema("https://www.velkyspalicek.cz/", "Velký Špalíček")
+
     generate_html(all_events)
