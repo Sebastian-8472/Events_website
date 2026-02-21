@@ -1,70 +1,69 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import os
+from datetime import datetime
 
-def scrape_cinema():
-    # URL da monitorare
-    urls = [
-        "https://www.kinoart.cz/en/cycles/expat-friendly",
-        "https://www.kinoscala.cz/en/programme"
-    ]
-    
+# 1. DEFINIZIONE DELLA FUNZIONE (Deve accettare i 2 parametri)
+def scrape_cinema(url, cinema_name):
     headers = {'User-Agent': 'Mozilla/5.0'}
-    all_events = []
+    events = []
     
     month_map = {
+        "1": "February", "2": "February", "3": "March", "4": "April",
+        "5": "May", "6": "June", "7": "July", "8": "August", "9": "September",
         "01": "January", "02": "February", "03": "March", "04": "April",
         "05": "May", "06": "June", "07": "July", "08": "August",
         "09": "September", "10": "October", "11": "November", "12": "December"
     }
 
-    for url in urls:
-        try:
-            response = requests.get(url, headers=headers, timeout=15)
-            soup = BeautifulSoup(response.text, 'html.parser')
-            items = soup.find_all('div', class_='m-program-item')
+    try:
+        response = requests.get(url, headers=headers, timeout=15)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Selettore specifico per Kino Art e Scala
+        items = soup.find_all('div', class_='m-program-item')
 
-            for item in items:
-                title = item.find('h3', class_='m-program-item__title').text.strip()
-                date_raw = item.find('div', class_='m-program-item__date').text.strip()
-                link_path = item.find('a', class_='m-program-item__link')['href']
-                
-                base_url = "https://www.kinoart.cz" if "kinoart" in url else "https://www.kinoscala.cz"
-                full_link = base_url + link_path
-
-                # Estrazione giorno e mese (formato atteso "19. 2." o "19. February")
-                parts = date_raw.split('.')
-                day = parts[0].strip().zfill(2)
-                
-                # Cerchiamo di capire il mese dal testo o dal numero
-                month_part = parts[1].strip()
-                if month_part.isdigit():
-                    month_name = month_map.get(month_part.zfill(2), "Unknown")
-                else:
-                    month_name = month_part
-
-                all_events.append({
-                    "title": title,
-                    "day": day,
-                    "month": month_name,
-                    "url": full_link
-                })
-        except Exception as e:
-            print(f"Errore durante lo scraping di {url}: {e}")
+        for item in items:
+            title = item.find('h3', class_='m-program-item__title').text.strip()
+            date_raw = item.find('div', class_='m-program-item__date').text.strip()
+            link_el = item.find('a', class_='m-program-item__link')
             
-    return all_events
+            base_url = "https://www.kinoart.cz" if "kinoart" in url else "https://www.kinoscala.cz"
+            full_link = base_url + link_el['href'] if link_el else url
 
+            # Parsing data: "19. 2." o "19. February"
+            parts = date_raw.split('.')
+            day = parts[0].strip().zfill(2)
+            month_part = parts[1].strip()
+
+            if month_part.isdigit():
+                month_name = month_map.get(month_part.zfill(2), "Unknown")
+            else:
+                month_name = month_part # Assume sia già il nome del mese in inglese
+
+            events.append({
+                "title": title,
+                "day": day,
+                "month": month_name,
+                "url": full_link,
+                "cinema": cinema_name
+            })
+    except Exception as e:
+        print(f"Error scraping {cinema_name}: {e}")
+        
+    return events
+
+# 2. GENERAZIONE HTML (Crea i pulsanti All, February, March, etc. in automatico)
 def generate_html(events):
     events_json = json.dumps(events, indent=4)
     
-    # Estrai i mesi unici dai dati per creare i pulsanti del filtro
-    unique_months = sorted(list(set(e['month'] for e in events)), key=lambda x: datetime.strptime(x, "%B") if x != "Unknown" else datetime.now())
+    # Crea lista mesi unici per i pulsanti
+    months_in_data = sorted(list(set(e['month'] for e in events if e['month'] != "Unknown")), 
+                            key=lambda x: datetime.strptime(x, "%B"))
 
-    # Crea l'HTML dei pulsanti dinamicamente
-    filter_buttons_html = '<button class="filter-btn active" onclick="filterEvents(\'all\')">All</button>'
-    for m in unique_months:
-        filter_buttons_html += f'\n            <button class="filter-btn" onclick="filterEvents(\'{m}\')">{m}</button>'
+    filter_buttons = '<button class="filter-btn active" onclick="filterEvents(\'all\')">All</button>'
+    for m in months_in_data:
+        filter_buttons += f'\n            <button class="filter-btn" onclick="filterEvents(\'{m}\')">{m}</button>'
 
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -74,7 +73,6 @@ def generate_html(events):
     <title>Kino Art - Upcoming English Friendly Screenings</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* ... (Il tuo CSS rimane identico) ... */
         :root {{ --bec-red: #e30613; --bec-dark: #333333; --bec-gray: #f4f4f4; --bec-text: #4a4a4a; --transition: all 0.3s ease; }}
         body {{ font-family: 'Open Sans', sans-serif; background-color: #fff; color: var(--bec-text); margin: 0; padding: 40px 20px; }}
         .container {{ max-width: 900px; margin: 0 auto; }}
@@ -101,17 +99,16 @@ def generate_html(events):
 <body>
 <div class="container">
     <header>
-        <h1>Kino Art Program</h1>
+        <h1>Cinema Program</h1>
         <div class="accent-line"></div>
         <div class="filters">
-            {filter_buttons_html}
+            {filter_buttons}
         </div>
     </header>
     <div class="event-list" id="eventList"></div>
 </div>
 <script>
     const events = {events_json};
-
     function displayEvents(filter) {{
         const list = document.getElementById('eventList');
         list.innerHTML = '';
@@ -127,7 +124,7 @@ def generate_html(events):
                     <span class="date-month">${{event.month.substring(0,3)}}</span>
                 </div>
                 <div class="event-info">
-                    <div class="event-category">Cinema • English Friendly</div>
+                    <div class="event-category">${{event.cinema}} • English Friendly</div>
                     <h2 class="event-title">${{event.title}}</h2>
                 </div>
                 <div class="btn-tickets">Tickets</div>
@@ -135,7 +132,6 @@ def generate_html(events):
             list.appendChild(card);
         }});
     }}
-
     function filterEvents(month) {{
         document.querySelectorAll('.filter-btn').forEach(btn => {{
             btn.classList.remove('active');
@@ -151,12 +147,10 @@ def generate_html(events):
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
 
+# 3. ESECUZIONE
 if __name__ == "__main__":
-    movie_data = scrape_cinema()
-    generate_html(movie_data)
     all_events = []
-    all_events += scrape_cinema("https://www.kinoart.cz/en/programme", "Kino Art")
+    all_events += scrape_cinema("https://www.kinoart.cz/en/cycles/expat-friendly", "Kino Art")
     all_events += scrape_cinema("https://www.kinoscala.cz/en/programme", "Kino Scala")
-    all_events += scrape_cinema("https://www.velkyspalicek.cz/", "Velký Špalíček")
-
+    
     generate_html(all_events)
