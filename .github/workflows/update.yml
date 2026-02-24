@@ -1,31 +1,74 @@
-name: Weekly Movie Update
+name: Kino Art Scraper
+
 on:
+  # ── Scheduled run: every Monday at 08:00 UTC ──────────────────
   schedule:
-    - cron: '0 0 * * 1' # Runs every Monday at midnight
-  workflow_dispatch: # Allows you to run it manually
+    - cron: "0 8 * * 1"
+
+  # ── Manual trigger from the GitHub Actions tab ────────────────
+  workflow_dispatch:
+
+  # ── Also run on every push to main (useful during development) ─
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  scrape:
+    name: Scrape & Save Events
     runs-on: ubuntu-latest
+
+    # Allow the job to write back to the repository
+    permissions:
+      contents: write
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      # ── 1. Checkout the repository ──────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      # ── 2. Set up Python ────────────────────────────────────────
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: "3.12"
 
+      # ── 3. Cache pip dependencies ────────────────────────────────
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # ── 4. Install dependencies ──────────────────────────────────
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
-
-      - name: Run scraper
-        run: python scraper.py
-
-      - name: Commit and push changes
         run: |
-          git config --global user.name 'Movie Bot'
-          git config --global user.email 'bot@github.com'
-          git add index.html
-          git commit -m "Weekly automated movie update" || exit 0
+          pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      # ── 5. Run the scraper ───────────────────────────────────────
+      - name: Run KinoArtScraper
+        run: python kino_art_scraper.py
+
+      # ── 6. Upload output files as GitHub Artifacts ───────────────
+      #       (keeps a downloadable copy of every run)
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kino-art-events-${{ github.run_id }}
+          path: |
+            events.json
+            events.html
+          retention-days: 30
+
+      # ── 7. Commit updated files back to the repository ───────────
+      - name: Commit & push updated events
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add events.json events.html
+          # Only commit when there are actual changes
+          git diff --cached --quiet || git commit -m "chore: update events [$(date -u '+%Y-%m-%d %H:%M UTC')]"
           git push
