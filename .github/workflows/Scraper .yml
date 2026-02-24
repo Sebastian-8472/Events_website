@@ -1,14 +1,9 @@
 name: Kino Art Scraper
 
 on:
-  # ── Scheduled run: every Monday at 08:00 UTC ──────────────────
   schedule:
     - cron: "0 8 * * 1"
-
-  # ── Manual trigger from the GitHub Actions tab ────────────────
   workflow_dispatch:
-
-  # ── Also run on every push to main (useful during development) ─
   push:
     branches:
       - main
@@ -18,22 +13,27 @@ jobs:
     name: Scrape & Save Events
     runs-on: ubuntu-latest
 
-    # Allow the job to write back to the repository
     permissions:
       contents: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # ── 1. Checkout the repository ──────────────────────────────
+      # ── 1. Checkout ──────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── 2. Set up Python ────────────────────────────────────────
+      # ── 2. Python ────────────────────────────────────────────────
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # ── 3. Cache pip dependencies ────────────────────────────────
+      # ── 3. Cache pip ─────────────────────────────────────────────
       - name: Cache pip
         uses: actions/cache@v4
         with:
@@ -48,13 +48,11 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      # ── 5. Run the scraper ───────────────────────────────────────
+      # ── 5. Run scraper ───────────────────────────────────────────
       - name: Run KinoArtScraper
         run: python kino_art_scraper.py
 
-      # ── 6. Debug – show what was generated ───────────────────────
-      #       Visibile nel log di Actions: utile per capire se il sito
-      #       ha bloccato la richiesta o restituito una pagina vuota.
+      # ── 6. Debug ─────────────────────────────────────────────────
       - name: Debug output
         run: |
           echo "=== events.json ==="
@@ -63,8 +61,17 @@ jobs:
           echo "=== events.html (first 30 lines) ==="
           head -30 events.html || echo "⚠ events.html not found"
 
-      # ── 7. Upload output files as GitHub Artifacts ───────────────
-      #       (keeps a downloadable copy of every run)
+      # ── 7. Commit JSON + HTML nel repo ───────────────────────────
+      - name: Commit & push updated events
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          [ -f events.json ] && git add events.json
+          [ -f events.html ] && git add events.html
+          git diff --cached --quiet || git commit -m "chore: update events [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          git push
+
+      # ── 8. Upload artifact per GitHub Artifacts ──────────────────
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -74,14 +81,22 @@ jobs:
             events.html
           retention-days: 30
 
-      # ── 8. Commit updated files back to the repository ───────────
-      - name: Commit & push updated events
+      # ── 9. Prepara la cartella per GitHub Pages ──────────────────
+      #       GitHub Pages si aspetta una cartella chiamata "site"
+      #       con dentro index.html (rinominiamo events.html)
+      - name: Prepare Pages folder
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Add only the files that actually exist (safe on first run too)
-          [ -f events.json ] && git add events.json
-          [ -f events.html ] && git add events.html
-          # Only commit when there are actual changes
-          git diff --cached --quiet || git commit -m "chore: update events [$(date -u '+%Y-%m-%d %H:%M UTC')]"
-          git push
+          mkdir -p site
+          cp events.html site/index.html
+          cp events.json site/events.json
+
+      # ── 10. Upload su GitHub Pages ───────────────────────────────
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      # ── 11. Deploy su GitHub Pages ───────────────────────────────
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
