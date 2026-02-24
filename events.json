@@ -1,10 +1,5 @@
 [
     {
-        "title": "Not only four years: Once Upon a Time in Ukraine",
-        "date": "úterý 24. února 18:00 · Kino CIT, Radnická 4",
-        "ticket_url": "No link found"
-    },
-    {
         "title": "Mr. Nobody Against Putin",
         "date": "středa 25. února 15:15 · Small screening hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/02/25/1515/tickets"
@@ -60,9 +55,49 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/01/1804/tickets"
     },
     {
+        "title": "The Last Viking",
+        "date": "úterý 3. března 15:30 · Main screening hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-last-viking-2025/2026/03/03/1530/tickets"
+    },
+    {
         "title": "Démanty noci | projection with guests",
         "date": "úterý 3. března 18:00 · Main screening hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/programme/demanty-noci-projection-with-guests/2026/03/03/1800/tickets"
+    },
+    {
+        "title": "Grace",
+        "date": "středa 4. března 17:30 · Main screening hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/grace-2025/2026/03/04/1730/tickets"
+    },
+    {
+        "title": "Flood",
+        "date": "středa 4. března 18:04 · Kino CIT, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/04/1804/tickets"
+    },
+    {
+        "title": "Kaprálova",
+        "date": "čtvrtek 5. března 15:15 · Small screening hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/05/1515/tickets"
+    },
+    {
+        "title": "Sentimental Value",
+        "date": "sobota 7. března 20:30 · Main screening hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/sentimental-value-2025/2026/03/07/2030/tickets"
+    },
+    {
+        "title": "Mr. Nobody Against Putin",
+        "date": "sobota 7. března 18:04 · Kino CIT, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/07/1804/tickets"
+    },
+    {
+        "title": "Kaprálova",
+        "date": "neděle 8. března 18:04 · Kino CIT, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/08/1804/tickets"
+    },
+    {
+        "title": "Flood",
+        "date": "neděle 8. března 20:04 · Kino CIT, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/08/2004/tickets"
     },
     {
         "title": "Dangerous Games: Roblox and the Metaverse Exposed",
