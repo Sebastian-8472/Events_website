@@ -46,13 +46,24 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install -r requirements.txt
 
       # ── 5. Run the scraper ───────────────────────────────────────
       - name: Run KinoArtScraper
         run: python kino_art_scraper.py
 
-      # ── 6. Upload output files as GitHub Artifacts ───────────────
+      # ── 6. Debug – show what was generated ───────────────────────
+      #       Visibile nel log di Actions: utile per capire se il sito
+      #       ha bloccato la richiesta o restituito una pagina vuota.
+      - name: Debug output
+        run: |
+          echo "=== events.json ==="
+          cat events.json || echo "⚠ events.json not found"
+          echo ""
+          echo "=== events.html (first 30 lines) ==="
+          head -30 events.html || echo "⚠ events.html not found"
+
+      # ── 7. Upload output files as GitHub Artifacts ───────────────
       #       (keeps a downloadable copy of every run)
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -63,7 +74,7 @@ jobs:
             events.html
           retention-days: 30
 
-      # ── 7. Commit updated files back to the repository ───────────
+      # ── 8. Commit updated files back to the repository ───────────
       - name: Commit & push updated events
         run: |
           git config user.name  "github-actions[bot]"
