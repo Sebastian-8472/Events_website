@@ -68,7 +68,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add events.json events.html
+          # Add only the files that actually exist (safe on first run too)
+          [ -f events.json ] && git add events.json
+          [ -f events.html ] && git add events.html
           # Only commit when there are actual changes
           git diff --cached --quiet || git commit -m "chore: update events [$(date -u '+%Y-%m-%d %H:%M UTC')]"
           git push
