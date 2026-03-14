@@ -31,7 +31,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraper and translator
-        run: python modulo1.py
+        run: kino_art_scraper.py
 
       - name: Commit and push changes
         run: |
