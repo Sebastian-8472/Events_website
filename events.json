@@ -1,67 +1,146 @@
 [
     {
-        "title": "Better Go Mad in the Wild",
-        "date": "pondělí 9. března 15:15 · Small screening hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/better-go-mad-in-the-wild-2025/2026/03/09/1515/tickets"
-    },
-    {
-        "title": "Kaprálova",
-        "date": "pondělí 9. března 17:45 · Small screening hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/09/1745/tickets"
-    },
-    {
-        "title": "Flood",
-        "date": "středa 11. března 15:15 · Main screening hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/11/1515/tickets"
-    },
-    {
-        "title": "General pub quiz - The Art of Trivia",
-        "date": "středa 11. března 19:30 · Black hole",
-        "ticket_url": "No link found"
-    },
-    {
-        "title": "Mr. Nobody Against Putin",
-        "date": "čtvrtek 12. března 18:04 · Kino CIT, Radnická 4",
-        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/12/1804/tickets"
-    },
-    {
-        "title": "Kaprálova",
-        "date": "pátek 13. března 18:04 · Kino CIT, Radnická 4",
-        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/13/1804/tickets"
-    },
-    {
-        "title": "Flood",
-        "date": "sobota 14. března 20:30 · Small screening hall, Cihlářská 19",
+        "title_orig": "Flood",
+        "title_en": "Flood",
+        "date_string": "Saturday\n\t\t\t14. March\n\t\t\t20:30\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/14/2030/tickets"
     },
     {
-        "title": "Mr. Nobody Against Putin",
-        "date": "pondělí 16. března 18:00 · Main screening hall, Cihlářská 19",
+        "title_orig": "Flood",
+        "title_en": "Flood",
+        "date_string": "Monday\n\t\t\t16. March\n\t\t\t15:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/16/1500/tickets"
+    },
+    {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Monday\n\t\t\t16. March\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/16/1800/tickets"
     },
     {
-        "title": "Dangerous Games: Roblox and the Metaverse Exposed",
-        "date": "pátek 20. března 18:00 · Main screening hall, Cihlářská 19",
+        "title_orig": "Kaprálova",
+        "title_en": "Corporal's",
+        "date_string": "Wednesday\n\t\t\t18. March\n\t\t\t15:15\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/18/1515/tickets"
+    },
+    {
+        "title_orig": "Sentimental Value",
+        "title_en": "Sentimental Value",
+        "date_string": "Wednesday\n\t\t\t18. March\n\t\t\t15:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/sentimental-value-2025/2026/03/18/1530/tickets"
+    },
+    {
+        "title_orig": "The Secret Agent",
+        "title_en": "The Secret Agent",
+        "date_string": "Thursday\n\t\t\t19. March\n\t\t\t15:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-secret-agent-2025/2026/03/19/1500/tickets"
+    },
+    {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Thursday\n\t\t\t19. March\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/19/1800/tickets"
+    },
+    {
+        "title_orig": "Dancing with the Bear",
+        "title_en": "Dancing with the Bear",
+        "date_string": "Thursday\n\t\t\t19. March\n\t\t\t18:04\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/dancing-with-the-bear-2026/2026/03/19/1804/tickets"
+    },
+    {
+        "title_orig": "Dangerous Games: Roblox and the Metaverse Exposed",
+        "title_en": "Dangerous Games: Roblox and the Metaverse Exposed",
+        "date_string": "Friday\n\t\t\t20. March\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/dangerous-games-roblox-and-the-metaverse-exposed-2025/2026/03/20/1800/tickets"
     },
     {
-        "title": "The Voice of Hind Rajab",
-        "date": "pátek 20. března 20:30 · Main screening hall, Cihlářská 19",
+        "title_orig": "The Voice of Hind Rajab",
+        "title_en": "The Voice of Hind Rajab",
+        "date_string": "Friday\n\t\t\t20. March\n\t\t\t20:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/the-voice-of-hind-rajab-2025/2026/03/20/2030/tickets"
     },
     {
-        "title": "Dear Tomorrow",
-        "date": "neděle 22. března 15:00 · Main screening hall, Cihlářská 19",
+        "title_orig": "Kaprálova",
+        "title_en": "Corporal's",
+        "date_string": "Friday\n\t\t\t20. March\n\t\t\t18:04\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/20/1804/tickets"
+    },
+    {
+        "title_orig": "The Secret Agent",
+        "title_en": "The Secret Agent",
+        "date_string": "Friday\n\t\t\t20. March\n\t\t\t20:04\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-secret-agent-2025/2026/03/20/2004/tickets"
+    },
+    {
+        "title_orig": "Dear Tomorrow",
+        "title_en": "Dear Tomorrow",
+        "date_string": "Sunday\n\t\t\t22. March\n\t\t\t15:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/dear-tomorrow-2025/2026/03/22/1500/tickets"
     },
     {
-        "title": "She",
-        "date": "pondělí 23. března 18:00 · Main screening hall, Cihlářská 19",
+        "title_orig": "Kaprálova",
+        "title_en": "Corporal's",
+        "date_string": "Sunday\n\t\t\t22. March\n\t\t\t17:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/22/1700/tickets"
+    },
+    {
+        "title_orig": "She",
+        "title_en": "She",
+        "date_string": "Monday\n\t\t\t23. March\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/she-2025/2026/03/23/1800/tickets"
     },
     {
-        "title": "Carmela and the Walkers",
-        "date": "středa 25. března 20:30 · Main screening hall, Cihlářská 19",
+        "title_orig": "Carmela and the Walkers",
+        "title_en": "Carmela and the Walkers",
+        "date_string": "Wednesday\n\t\t\t25. March\n\t\t\t20:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/carmela-and-the-walkers-2025/2026/03/25/2030/tickets"
+    },
+    {
+        "title_orig": "Ungrateful Beings",
+        "title_en": "Ungrateful Beings",
+        "date_string": "Monday\n\t\t\t30. March\n\t\t\t20:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/ungrateful-beings-2025/2026/03/30/2030/tickets"
+    },
+    {
+        "title_orig": "Dracula",
+        "title_en": "Dracula",
+        "date_string": "Monday\n\t\t\t13. April\n\t\t\t20:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/dracula-2025/2026/04/13/2000/tickets"
+    },
+    {
+        "title_orig": "Wolves",
+        "title_en": "Wolves",
+        "date_string": "Tuesday\n\t\t\t14. April\n\t\t\t18:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wolves-2025/2026/04/14/1800/tickets"
+    },
+    {
+        "title_orig": "Weightless",
+        "title_en": "Weightless",
+        "date_string": "Wednesday\n\t\t\t15. April\n\t\t\t20:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/weightless-2025/2026/04/15/2000/tickets"
+    },
+    {
+        "title_orig": "Hen",
+        "title_en": "Hen",
+        "date_string": "Thursday\n\t\t\t16. April\n\t\t\t20:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/hen-2025/2026/04/16/2000/tickets"
+    },
+    {
+        "title_orig": "Love Me Tender",
+        "title_en": "Love Me Tender",
+        "date_string": "Friday\n\t\t\t17. April\n\t\t\t17:45\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/love-me-tender-2025/2026/04/17/1745/tickets"
+    },
+    {
+        "title_orig": "Winter of the Crow",
+        "title_en": "Winter of the Crow",
+        "date_string": "Saturday\n\t\t\t18. April\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/winter-of-the-crow-2025/2026/04/18/1800/tickets"
+    },
+    {
+        "title_orig": "The Stranger",
+        "title_en": "The Stranger",
+        "date_string": "Sunday\n\t\t\t19. April\n\t\t\t20:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-stranger-2025/2026/04/19/2000/tickets"
     }
 ]

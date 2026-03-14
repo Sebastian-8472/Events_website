@@ -1,194 +1,140 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import os
+import re
 from transformers import pipeline
 
 class KinoArtManager:
-    """
-    A class to manage Kino Art cinema events: scraping, translating, 
-    and generating web/data reports.
-    """
-
     def __init__(self, url="https://www.kinoart.cz/en/cycles/expat-friendly"):
-        """
-        Initializes the manager with the target URL and the translation model.
-        """
         self.url = url
         self.events = []
         
-        print("Initializing Translation Engine (Helsinki-NLP)...")
-        # Helsinki-NLP/opus-mt-en-it: Translates English to Italian.
-        # device=-1 forces the use of CPU, which is required for GitHub Actions.
+        # Comprehensive Czech to English Mapping for Dates
+        self.date_translation = {
+            "pondělí": "Monday", "úterý": "Tuesday", "středa": "Wednesday",
+            "čtvrtek": "Thursday", "pátek": "Friday", "sobota": "Saturday",
+            "neděle": "Sunday",
+            "ledna": "January", "února": "February", "března": "March",
+            "dubna": "April", "května": "May", "června": "June",
+            "července": "July", "srpna": "August", "září": "September",
+            "října": "October", "listopadu": "November", "prosince": "December"
+        }
+
+        print("Initializing Translation Engine (Czech to English)...")
+        # Helsinki-NLP/opus-mt-cs-en: Specifically for Czech to English
         self.translator = pipeline(
             "translation", 
-            model="Helsinki-NLP/opus-mt-en-it", 
+            model="Helsinki-NLP/opus-mt-cs-en", 
             device=-1
         )
 
+    def translate_date(self, date_raw):
+        """Converts Czech date words to English equivalents."""
+        d = date_raw.lower()
+        for cz, en in self.date_translation.items():
+            d = d.replace(cz, en)
+        return d.title()
+
     def scrape_events(self):
-        """
-        Scrapes movie titles, dates, and ticket URLs from the Kino Art website.
-        Matches the logic found in your original scraper (1).py script.
-        """
-        print(f"Fetching data from {self.url}...")
+        print(f"Scraping {self.url}...")
+        headers = {'User-Agent': 'Mozilla/5.0'}
         try:
-            response = requests.get(self.url, timeout=15)
+            response = requests.get(self.url, headers=headers, timeout=15)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
         except Exception as e:
-            print(f"Error during download: {e}")
+            print(f"Error fetching data: {e}")
             return []
 
         self.events = []
-        # Find all movie containers based on the site's calendar structure
         movie_blocks = soup.find_all('div', class_='events-calendar__event') 
         
         for block in movie_blocks:
             try:
-                # 1. Extract the Title
-                title = block.find('h3', class_='title').text.strip()
+                title_orig = block.find('h3', class_='title').text.strip()
+                date_raw = block.find('p', class_='events-calendar__event-time').text.strip()
                 
-                # 2. Extract Date/Time and clean newlines/tabs
-                date_time = block.find('p', class_='events-calendar__event-time').text.strip().replace('\n', ' ').replace('\t', '')
+                # Fix the Date
+                eng_date = self.translate_date(date_raw)
                 
-                # 3. Extract the Ticket Link
-                ticket_tags = block.find_all('a', class_='button')
                 ticket_link = "No link found"
-                for tag in ticket_tags:
+                for tag in block.find_all('a', class_='button'):
                     if 'Tickets' in tag.text:
                         ticket_link = tag['href']
                         break
                 
-                # Append the gathered data to our local "database"
                 self.events.append({
-                    "title_en": title,
-                    "title_it": "", # Placeholder for translation
-                    "date_string": date_time,
+                    "title_orig": title_orig,
+                    "title_en": "", 
+                    "date_string": eng_date,
                     "ticket_url": ticket_link
                 })
-            except AttributeError:
-                # Skip blocks that do not match the expected structure
+            except Exception:
                 continue
-        
-        print(f"Scraping completed: {len(self.events)} events found.")
         return self.events
 
     def translate_events(self):
-        """
-        Translates the English titles to Italian using the HuggingFace model.
-        """
-        if not self.events:
-            print("No events to translate.")
-            return
-
-        print(f"Translating {len(self.events)} titles...")
+        if not self.events: return
+        print(f"Translating {len(self.events)} titles to English...")
         for event in self.events:
-            try:
-                # Perform translation
-                result = self.translator(event['title_en'], max_length=100)
-                event['title_it'] = result[0]['translation_text']
-            except Exception as e:
-                print(f"Translation error for '{event['title_en']}': {e}")
-                event['title_it'] = event['title_en'] # Fallback to English
+            result = self.translator(event['title_orig'], max_length=100)
+            event['title_en'] = result[0]['translation_text']
 
     def save_to_json(self, filename="events.json"):
-        """
-        Saves the processed event data into a JSON file.
-        """
-        if not self.events:
-            print("No data to save.")
-            return
-        
+        """Generates the JSON file."""
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(self.events, f, indent=4, ensure_ascii=False)
-        print(f"JSON data saved to {filename}")
+        print(f"Data successfully saved to {filename}")
 
     def generate_html(self, output_filename="index.html"):
-        """
-        Generates a BEC-styled HTML page. 
-        Note: CSS braces are doubled {{ }} to avoid Python string format errors.
-        """
-        if not self.events:
-            print("No events available to generate HTML.")
-            return
-
-        # HTML Template with BEC Branding
+        """Generates the English index.html."""
         html_template = """
         <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Kino Art - Expat Friendly</title>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
             <style>
-                :root {{ --bec-red: #e30613; --bec-dark: #333; --bec-gray: #f4f4f4; }}
-                body {{ font-family: 'Open Sans', sans-serif; background: #fff; margin: 0; padding: 20px; color: #4a4a4a; }}
-                .container {{ max-width: 800px; margin: 0 auto; }}
-                header {{ border-bottom: 4px solid var(--bec-red); margin-bottom: 30px; padding-bottom: 10px; }}
-                h1 {{ font-family: 'Montserrat'; text-transform: uppercase; margin: 0; font-size: 1.8rem; }}
-                .event-card {{ display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #eee; text-decoration: none; color: inherit; transition: 0.3s; }}
-                .event-card:hover {{ background: var(--bec-gray); transform: translateX(5px); }}
-                .date-box {{ min-width: 120px; text-align: center; border-right: 2px solid var(--bec-red); margin-right: 20px; }}
-                .date-text {{ display: block; font-size: 0.85rem; font-weight: 700; color: var(--bec-red); text-transform: uppercase; }}
-                .title-container {{ flex-grow: 1; }}
-                .title-it {{ font-family: 'Montserrat'; font-size: 1.2rem; font-weight: 700; display: block; }}
-                .title-en {{ font-size: 0.9rem; font-style: italic; color: #888; display: block; }}
-                .buy-btn {{ font-weight: bold; color: var(--bec-red); white-space: nowrap; margin-left: 10px; }}
+                :root {{ --bec-red: #e30613; }}
+                body {{ font-family: 'Open Sans', sans-serif; padding: 40px; color: #333; }}
+                .container {{ max-width: 850px; margin: 0 auto; }}
+                header {{ border-bottom: 4px solid var(--bec-red); margin-bottom: 30px; }}
+                .event-card {{ display: flex; padding: 20px 0; border-bottom: 1px solid #ddd; text-decoration: none; color: inherit; transition: 0.2s; }}
+                .event-card:hover {{ background: #f9f9f9; padding-left: 10px; }}
+                .date-column {{ min-width: 250px; color: var(--bec-red); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }}
+                .title-en {{ font-size: 1.2rem; font-weight: bold; display: block; }}
+                .title-orig {{ font-size: 0.85rem; color: #777; font-style: italic; }}
+                .btn {{ color: var(--bec-red); font-weight: bold; margin-left: auto; align-self: center; }}
             </style>
         </head>
         <body>
             <div class="container">
-                <header><h1>Kino Art - Programma per Expat</h1></header>
-                <div id="eventList">
-                    {event_items}
-                </div>
+                <header><h1>Kino Art - Expat Friendly Program</h1></header>
+                {event_items}
             </div>
         </body>
         </html>
         """
-
-        event_items_html = ""
+        items_html = ""
         for e in self.events:
-            # Shorten date string for display if it contains a comma
-            display_date = e['date_string'].split(',')[0] if ',' in e['date_string'] else e['date_string']
-            
-            event_items_html += f"""
+            items_html += f"""
             <a href="{e['ticket_url']}" class="event-card" target="_blank">
-                <div class="date-box">
-                    <span class="date-text">{display_date}</span>
-                </div>
-                <div class="title-container">
-                    <span class="title-it">{e['title_it']}</span>
+                <div class="date-column">{e['date_string']}</div>
+                <div class="info">
                     <span class="title-en">{e['title_en']}</span>
+                    <span class="title-orig">{e['title_orig']}</span>
                 </div>
-                <div class="buy-btn">BIGLIETTI →</div>
-            </a>
-            """
-
-        # Populate the template with the generated items
-        with open(output_filename, "w", encoding="utf-8") as f:
-            f.write(html_template.format(event_items=event_items_html))
+                <div class="btn">TICKETS →</div>
+            </a>"""
         
-        print(f"HTML page generated successfully: {output_filename}")
+        with open(output_filename, "w", encoding="utf-8") as f:
+            f.write(html_template.format(event_items=items_html))
+        print(f"HTML successfully generated as {output_filename}")
 
-# --- Automation Execution ---
 if __name__ == "__main__":
-    # Create the manager instance
     manager = KinoArtManager()
-    
-    # 1. Fetch data from the web
     manager.scrape_events()
-    
-    # 2. Translate titles to Italian
     manager.translate_events()
-    
-    # 3. Export data to JSON for other uses
-    manager.save_to_json("events.json")
-    
-    # 4. Create the bilingual styled website (index.html)
-    manager.generate_html("index.html")
-    
-    print("\nWorkflow completed successfully at 24:00 (Daily Update).")
-    scraper.generate_html()
+    manager.save_to_json("events.json") # Generates the JSON
+    manager.generate_html("events.html") # Generates the HTML
+    print("\nAll files updated and translated to English!")
