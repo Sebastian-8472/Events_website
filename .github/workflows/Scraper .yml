@@ -1,103 +1,42 @@
-name: Kino Art Scraper
+name: Daily Cinema Update with Translation
 
 on:
- schedule:
-    # '0 0 * * *' significa: minuto 0, ora 0 (mezzanotte), ogni giorno, ogni mese, ogni giorno della settimana.
+  schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
-  scrape:
-    name: Scrape & Save Events
+  build:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      # ── 1. Checkout ──────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── 2. Python ────────────────────────────────────────────────
-      - name: Set up Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.11'
 
-      # ── 3. Cache pip ─────────────────────────────────────────────
-      - name: Cache pip
-        uses: actions/cache@v4
+      # --- LOGICA DI CACHE ---
+      - name: Cache Hugging Face models
+        uses: actions/cache@v3
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          path: ~/.cache/huggingface
+          key: ${{ runner.os }}-hf-models-v1
+      # -----------------------
 
-      # ── 4. Install dependencies ──────────────────────────────────
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
           pip install -r requirements.txt
 
-      # ── 5. Run scraper ───────────────────────────────────────────
-      - name: Run KinoArtScraper
-        run: python kino_art_scraper.py
+      - name: Run scraper and translator
+        run: python modulo1.py
 
-      # ── 6. Debug ─────────────────────────────────────────────────
-      - name: Debug output
+      - name: Commit and push changes
         run: |
-          echo "=== events.json ==="
-          cat events.json || echo "⚠ events.json not found"
-          echo ""
-          echo "=== events.html (first 30 lines) ==="
-          head -30 events.html || echo "⚠ events.html not found"
-
-      # ── 7. Commit JSON + HTML nel repo ───────────────────────────
-      - name: Commit & push updated events
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          [ -f events.json ] && git add events.json
-          [ -f events.html ] && git add events.html
-          git diff --cached --quiet || git commit -m "chore: update events [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Daily update with translations: $(date)" || echo "No changes"
           git push
-
-      # ── 8. Upload artifact per GitHub Artifacts ──────────────────
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: kino-art-events-${{ github.run_id }}
-          path: |
-            events.json
-            events.html
-          retention-days: 30
-
-      # ── 9. Prepara la cartella per GitHub Pages ──────────────────
-      #       GitHub Pages si aspetta una cartella chiamata "site"
-      #       con dentro index.html (rinominiamo events.html)
-      - name: Prepare Pages folder
-        run: |
-          mkdir -p site
-          cp events.html site/index.html
-          cp events.json site/events.json
-
-      # ── 10. Upload su GitHub Pages ───────────────────────────────
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-      # ── 11. Deploy su GitHub Pages ───────────────────────────────
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
