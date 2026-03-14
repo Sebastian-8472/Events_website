@@ -136,5 +136,5 @@ if __name__ == "__main__":
     manager.scrape_events()
     manager.translate_events()
     manager.save_to_json("events.json") # Generates the JSON
-    manager.generate_html("events.html") # Generates the HTML
+    manager.generate_html("index.html") # Generates the HTML
     print("\nAll files updated and translated to English!")
