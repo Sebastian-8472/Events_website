@@ -125,7 +125,8 @@ class KinoArtManager:
                     <span class="title-orig">{e['title_orig']}</span>
                 </div>
                 <div class="btn">TICKETS →</div>
-            </a>"""
+            </a>
+            """
         
         with open(output_filename, "w", encoding="utf-8") as f:
             f.write(html_template.format(event_items=items_html))
@@ -136,5 +137,5 @@ if __name__ == "__main__":
     manager.scrape_events()
     manager.translate_events()
     manager.save_to_json("events.json") # Generates the JSON
-    manager.generate_html("events.html") # Generates the HTML
+    manager.generate_html("index.html") # Generates the HTML
     print("\nAll files updated and translated to English!")
