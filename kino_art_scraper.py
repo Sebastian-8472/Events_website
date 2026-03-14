@@ -1,228 +1,194 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import sys
-from datetime import datetime
+import os
+from transformers import pipeline
 
-
-class KinoArtScraper:
+class KinoArtManager:
     """
-    Scraper per la pagina Expat Friendly di Kino Art.
-
-    Funzionalità:
-      - scrape_events()    → scarica gli eventi e li salva nel database interno
-      - save_to_json()     → esporta il database in un file JSON
-      - generate_html()    → genera una pagina HTML nello stile di Kino Art
+    A class to manage Kino Art cinema events: scraping, translating, 
+    and generating web/data reports.
     """
 
-    URL = "https://www.kinoart.cz/en/cycles/expat-friendly"
+    def __init__(self, url="https://www.kinoart.cz/en/cycles/expat-friendly"):
+        """
+        Initializes the manager with the target URL and the translation model.
+        """
+        self.url = url
+        self.events = []
+        
+        print("Initializing Translation Engine (Helsinki-NLP)...")
+        # Helsinki-NLP/opus-mt-en-it: Translates English to Italian.
+        # device=-1 forces the use of CPU, which is required for GitHub Actions.
+        self.translator = pipeline(
+            "translation", 
+            model="Helsinki-NLP/opus-mt-en-it", 
+            device=-1
+        )
 
-    # Simula un browser reale per evitare blocchi anti-bot
-    HEADERS = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/122.0.0.0 Safari/537.36"
-        ),
-        "Accept-Language": "en-US,en;q=0.9",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    }
-
-    def __init__(self):
-        self.database: list[dict] = []
-        self.error: str | None = None
-
-    # ──────────────────────────────────────────────
-    # 1. SCRAPING
-    # ──────────────────────────────────────────────
-
-    def scrape_events(self) -> list[dict]:
-        print(f"[Scraper] Fetching data from {self.URL} ...")
-
+    def scrape_events(self):
+        """
+        Scrapes movie titles, dates, and ticket URLs from the Kino Art website.
+        Matches the logic found in your original scraper (1).py script.
+        """
+        print(f"Fetching data from {self.url}...")
         try:
-            response = requests.get(self.URL, headers=self.HEADERS, timeout=20)
+            response = requests.get(self.url, timeout=15)
             response.raise_for_status()
-        except requests.RequestException as e:
-            self.error = f"Network error: {e}"
-            print(f"[Scraper] ERROR – {self.error}", file=sys.stderr)
+            soup = BeautifulSoup(response.text, 'html.parser')
+        except Exception as e:
+            print(f"Error during download: {e}")
             return []
 
-        soup = BeautifulSoup(response.text, "html.parser")
-        self.database = []
-
-        blocks = soup.find_all("div", class_="events-calendar__event")
-
-        if not blocks:
-            self.error = "No event blocks found – the page structure may have changed."
-            print(f"[Scraper] WARNING – {self.error}", file=sys.stderr)
-            return []
-
-        for block in blocks:
+        self.events = []
+        # Find all movie containers based on the site's calendar structure
+        movie_blocks = soup.find_all('div', class_='events-calendar__event') 
+        
+        for block in movie_blocks:
             try:
-                title = block.find("h3", class_="title").text.strip()
-
-                raw_time = (
-                    block.find("p", class_="events-calendar__event-time")
-                    .text.strip()
-                    .replace("\n", " ")
-                    .replace("\t", "")
-                )
-                date_time = " ".join(raw_time.split())
-
-                ticket_url = "No link found"
-                for tag in block.find_all("a", class_="button"):
-                    if "Tickets" in tag.text:
-                        ticket_url = tag["href"]
+                # 1. Extract the Title
+                title = block.find('h3', class_='title').text.strip()
+                
+                # 2. Extract Date/Time and clean newlines/tabs
+                date_time = block.find('p', class_='events-calendar__event-time').text.strip().replace('\n', ' ').replace('\t', '')
+                
+                # 3. Extract the Ticket Link
+                ticket_tags = block.find_all('a', class_='button')
+                ticket_link = "No link found"
+                for tag in ticket_tags:
+                    if 'Tickets' in tag.text:
+                        ticket_link = tag['href']
                         break
-
-                self.database.append(
-                    {"title": title, "date": date_time, "ticket_url": ticket_url}
-                )
-
+                
+                # Append the gathered data to our local "database"
+                self.events.append({
+                    "title_en": title,
+                    "title_it": "", # Placeholder for translation
+                    "date_string": date_time,
+                    "ticket_url": ticket_link
+                })
             except AttributeError:
+                # Skip blocks that do not match the expected structure
                 continue
+        
+        print(f"Scraping completed: {len(self.events)} events found.")
+        return self.events
 
-        print(f"[Scraper] Found {len(self.database)} events.")
-        return self.database
+    def translate_events(self):
+        """
+        Translates the English titles to Italian using the HuggingFace model.
+        """
+        if not self.events:
+            print("No events to translate.")
+            return
 
-    # ──────────────────────────────────────────────
-    # 2. SALVATAGGIO JSON
-    # ──────────────────────────────────────────────
+        print(f"Translating {len(self.events)} titles...")
+        for event in self.events:
+            try:
+                # Perform translation
+                result = self.translator(event['title_en'], max_length=100)
+                event['title_it'] = result[0]['translation_text']
+            except Exception as e:
+                print(f"Translation error for '{event['title_en']}': {e}")
+                event['title_it'] = event['title_en'] # Fallback to English
 
-    def save_to_json(self, filepath: str = "events.json") -> None:
-        """Salva il database in JSON. Crea sempre il file, anche se vuoto."""
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(self.database, f, indent=4, ensure_ascii=False)
-        print(f"[JSON] Saved {len(self.database)} events → {filepath}")
+    def save_to_json(self, filename="events.json"):
+        """
+        Saves the processed event data into a JSON file.
+        """
+        if not self.events:
+            print("No data to save.")
+            return
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(self.events, f, indent=4, ensure_ascii=False)
+        print(f"JSON data saved to {filename}")
 
-    # ──────────────────────────────────────────────
-    # 3. GENERAZIONE HTML
-    # ──────────────────────────────────────────────
+    def generate_html(self, output_filename="index.html"):
+        """
+        Generates a BEC-styled HTML page. 
+        Note: CSS braces are doubled {{ }} to avoid Python string format errors.
+        """
+        if not self.events:
+            print("No events available to generate HTML.")
+            return
 
-    def generate_html(self, filepath: str = "events.html") -> None:
-        """Genera sempre l'HTML, anche in caso di errore o database vuoto."""
-        generated_at = datetime.now().strftime("%d %B %Y, %H:%M")
-
-        if self.error:
-            body_content = f"""
-            <div class="status-box status-box--error">
-                <span class="material-icons icon">error_outline</span>
-                <p><strong>Scraping failed</strong></p>
-                <p>{self.error}</p>
-            </div>"""
-        elif not self.database:
-            body_content = """
-            <div class="status-box status-box--empty">
-                <span class="material-icons icon">event_busy</span>
-                <p>No upcoming Expat Friendly events found at the moment.<br>
-                Check back next week!</p>
-            </div>"""
-        else:
-            cards = ""
-            for event in self.database:
-                ticket_button = (
-                    f'<a class="button" href="{event["ticket_url"]}" target="_blank">'
-                    f'<span class="material-icons icon">confirmation_number</span> Tickets</a>'
-                    if event["ticket_url"] != "No link found"
-                    else '<span class="no-ticket">No ticket link available</span>'
-                )
-                cards += f"""
-            <div class="events-calendar__event">
-                <div class="events-calendar__event-text">
-                    <div class="events-calendar__event-description">
-                        <div class="events-calendar__event-title">
-                            <h3 class="title">{event["title"]}</h3>
-                        </div>
-                        <p class="events-calendar__event-time">
-                            <span class="material-icons icon">schedule</span>
-                            {event["date"]}
-                        </p>
-                        <p class="events-calendar__event-buttons">
-                            {ticket_button}
-                        </p>
-                    </div>
+        # HTML Template with BEC Branding
+        html_template = """
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Kino Art - Expat Friendly</title>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+            <style>
+                :root {{ --bec-red: #e30613; --bec-dark: #333; --bec-gray: #f4f4f4; }}
+                body {{ font-family: 'Open Sans', sans-serif; background: #fff; margin: 0; padding: 20px; color: #4a4a4a; }}
+                .container {{ max-width: 800px; margin: 0 auto; }}
+                header {{ border-bottom: 4px solid var(--bec-red); margin-bottom: 30px; padding-bottom: 10px; }}
+                h1 {{ font-family: 'Montserrat'; text-transform: uppercase; margin: 0; font-size: 1.8rem; }}
+                .event-card {{ display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #eee; text-decoration: none; color: inherit; transition: 0.3s; }}
+                .event-card:hover {{ background: var(--bec-gray); transform: translateX(5px); }}
+                .date-box {{ min-width: 120px; text-align: center; border-right: 2px solid var(--bec-red); margin-right: 20px; }}
+                .date-text {{ display: block; font-size: 0.85rem; font-weight: 700; color: var(--bec-red); text-transform: uppercase; }}
+                .title-container {{ flex-grow: 1; }}
+                .title-it {{ font-family: 'Montserrat'; font-size: 1.2rem; font-weight: 700; display: block; }}
+                .title-en {{ font-size: 0.9rem; font-style: italic; color: #888; display: block; }}
+                .buy-btn {{ font-weight: bold; color: var(--bec-red); white-space: nowrap; margin-left: 10px; }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <header><h1>Kino Art - Programma per Expat</h1></header>
+                <div id="eventList">
+                    {event_items}
                 </div>
-            </div>"""
+            </div>
+        </body>
+        </html>
+        """
 
-            body_content = f'<h2 class="section-title">Upcoming Screenings</h2>{cards}'
+        event_items_html = ""
+        for e in self.events:
+            # Shorten date string for display if it contains a comma
+            display_date = e['date_string'].split(',')[0] if ',' in e['date_string'] else e['date_string']
+            
+            event_items_html += f"""
+            <a href="{e['ticket_url']}" class="event-card" target="_blank">
+                <div class="date-box">
+                    <span class="date-text">{display_date}</span>
+                </div>
+                <div class="title-container">
+                    <span class="title-it">{e['title_it']}</span>
+                    <span class="title-en">{e['title_en']}</span>
+                </div>
+                <div class="buy-btn">BIGLIETTI →</div>
+            </a>
+            """
 
-        html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expat Friendly – Kino Art</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {{ box-sizing: border-box; }}
-        body {{ margin: 0; font-family: 'Roboto', Arial, sans-serif; background: #f4f0e8; color: #1a1a1a; }}
-        a {{ color: inherit; text-decoration: none; }}
-        a:hover {{ text-decoration: underline; }}
-        .site-header {{ background: #1a1a1a; color: #f4f0e8; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; }}
-        .site-header .logo {{ font-size: 1.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }}
-        .site-header nav a {{ color: #f4f0e8; margin-left: 24px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }}
-        .cycle-header {{ background: #1a1a1a; color: #f4f0e8; padding: 48px 40px 32px; border-bottom: 4px solid #e50070; }}
-        .cycle-header h1 {{ font-size: 2.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 12px; }}
-        .cycle-header p {{ max-width: 720px; line-height: 1.6; font-size: 0.95rem; color: #ccc; margin: 0; }}
-        .cycle-header .meta {{ margin-top: 16px; font-size: 0.8rem; color: #888; }}
-        .events-wrapper {{ max-width: 1100px; margin: 40px auto; padding: 0 24px 60px; }}
-        .section-title {{ font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1em; border-left: 4px solid #e50070; padding-left: 12px; margin-bottom: 24px; }}
-        .events-calendar__event {{ background: #fff; border-radius: 2px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); transition: box-shadow .2s; }}
-        .events-calendar__event:hover {{ box-shadow: 0 4px 16px rgba(0,0,0,.14); }}
-        .events-calendar__event-text {{ padding: 20px 24px; }}
-        .events-calendar__event-description {{ display: flex; flex-direction: column; gap: 8px; }}
-        .title {{ font-size: 1.25rem; font-weight: 700; margin: 0; }}
-        .events-calendar__event-time {{ display: flex; align-items: center; gap: 6px; font-size: 0.88rem; color: #555; margin: 0; font-style: italic; }}
-        .button {{ display: inline-flex; align-items: center; gap: 6px; background: #1a1a1a; color: #f4f0e8; padding: 8px 16px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; border-radius: 2px; transition: background .2s; }}
-        .button:hover {{ background: #e50070; text-decoration: none; }}
-        .no-ticket {{ font-size: 0.82rem; color: #aaa; font-style: italic; }}
-        .status-box {{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 60px 24px; border-radius: 4px; text-align: center; font-size: 1rem; }}
-        .status-box .material-icons {{ font-size: 3rem; }}
-        .status-box--empty {{ background: #fff; color: #888; }}
-        .status-box--error {{ background: #fff0f0; color: #c0392b; border: 1px solid #f5c6c6; }}
-        .material-icons.icon {{ font-size: 1rem; vertical-align: middle; }}
-        .site-footer {{ background: #1a1a1a; color: #888; text-align: center; padding: 24px; font-size: 0.8rem; }}
-        @media (max-width: 600px) {{
-            .cycle-header {{ padding: 32px 20px 24px; }}
-            .cycle-header h1 {{ font-size: 2rem; }}
-            .events-wrapper {{ padding: 0 12px 40px; }}
-            .site-header {{ padding: 14px 20px; }}
-            .site-header nav {{ display: none; }}
-        }}
-    </style>
-</head>
-<body>
-    <header class="site-header">
-        <span class="logo">Kino Art</span>
-        <nav>
-            <a href="https://www.kinoart.cz/en" target="_blank">Home</a>
-            <a href="{self.URL}" target="_blank">Expat Friendly</a>
-        </nav>
-    </header>
-    <div class="cycle-header">
-        <h1>Expat Friendly</h1>
-        <p>European and global art films with English subtitles, plus Czech films subtitled in English – making cinema in Brno accessible to everyone.</p>
-        <p class="meta">Updated on {generated_at} · {len(self.database)} events</p>
-    </div>
-    <div class="events-wrapper">
-        {body_content}
-    </div>
-    <footer class="site-footer">
-        &copy; Kino Art Brno &nbsp;|&nbsp; Data scraped automatically from
-        <a href="{self.URL}" target="_blank" style="color:#e50070;">{self.URL}</a>
-    </footer>
-</body>
-</html>
-"""
-        with open(filepath, "w", encoding="utf-8") as f:
-            f.write(html)
-        print(f"[HTML] Generated → {filepath}  ({len(self.database)} events)")
+        # Populate the template with the generated items
+        with open(output_filename, "w", encoding="utf-8") as f:
+            f.write(html_template.format(event_items=event_items_html))
+        
+        print(f"HTML page generated successfully: {output_filename}")
 
-
-# ── Utilizzo ─────────────────────────────────────────────────────────────────
+# --- Automation Execution ---
 if __name__ == "__main__":
-    scraper = KinoArtScraper()
-    scraper.scrape_events()
-    scraper.save_to_json()
+    # Create the manager instance
+    manager = KinoArtManager()
+    
+    # 1. Fetch data from the web
+    manager.scrape_events()
+    
+    # 2. Translate titles to Italian
+    manager.translate_events()
+    
+    # 3. Export data to JSON for other uses
+    manager.save_to_json("events.json")
+    
+    # 4. Create the bilingual styled website (index.html)
+    manager.generate_html("index.html")
+    
+    print("\nWorkflow completed successfully at 24:00 (Daily Update).")
     scraper.generate_html()
