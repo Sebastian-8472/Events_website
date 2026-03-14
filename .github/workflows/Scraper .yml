@@ -1,8 +1,9 @@
 name: Kino Art Scraper
 
 on:
-  schedule:
-    - cron: "0 8 * * 1"
+ schedule:
+    # '0 0 * * *' significa: minuto 0, ora 0 (mezzanotte), ogni giorno, ogni mese, ogni giorno della settimana.
+    - cron: '0 0 * * *'
   workflow_dispatch:
   push:
     branches:
