@@ -30,8 +30,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run scraper and translator
-        run: kino_art_scraper.py
+      - name: Run Scraper and Translator
+        run: python kino_art_scraper.py
 
       - name: Commit and push changes
         run: |
