@@ -1,17 +1,5 @@
 [
     {
-        "title_orig": "Flood",
-        "title_en": "Flood",
-        "date_string": "Monday\n\t\t\t16. March\n\t\t\t15:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/16/1500/tickets"
-    },
-    {
-        "title_orig": "Mr. Nobody Against Putin",
-        "title_en": "Mr. Nobody Against Putin",
-        "date_string": "Monday\n\t\t\t16. March\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/16/1800/tickets"
-    },
-    {
         "title_orig": "Kaprálova",
         "title_en": "Corporal's",
         "date_string": "Wednesday\n\t\t\t18. March\n\t\t\t15:15\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
@@ -84,10 +72,46 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/she-2025/2026/03/23/1800/tickets"
     },
     {
+        "title_orig": "Dancing with the Bear",
+        "title_en": "Dancing with the Bear",
+        "date_string": "Tuesday\n\t\t\t24. March\n\t\t\t17:45\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/dancing-with-the-bear-2026/2026/03/24/1745/tickets"
+    },
+    {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Tuesday\n\t\t\t24. March\n\t\t\t20:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/24/2030/tickets"
+    },
+    {
         "title_orig": "Carmela and the Walkers",
         "title_en": "Carmela and the Walkers",
         "date_string": "Wednesday\n\t\t\t25. March\n\t\t\t20:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/carmela-and-the-walkers-2025/2026/03/25/2030/tickets"
+    },
+    {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Wednesday\n\t\t\t25. March\n\t\t\t18:04\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/03/25/1804/tickets"
+    },
+    {
+        "title_orig": "Kaprálova",
+        "title_en": "Corporal's",
+        "date_string": "Thursday\n\t\t\t26. March\n\t\t\t18:04\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/kapralova-2025/2026/03/26/1804/tickets"
+    },
+    {
+        "title_orig": "Flood",
+        "title_en": "Flood",
+        "date_string": "Saturday\n\t\t\t28. March\n\t\t\t20:34\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/03/28/2034/tickets"
+    },
+    {
+        "title_orig": "The Secret Agent",
+        "title_en": "The Secret Agent",
+        "date_string": "Sunday\n\t\t\t29. March\n\t\t\t17:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-secret-agent-2025/2026/03/29/1730/tickets"
     },
     {
         "title_orig": "Ungrateful Beings",
