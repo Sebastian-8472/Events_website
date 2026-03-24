@@ -1,11 +1,5 @@
 [
     {
-        "title_orig": "She",
-        "title_en": "She",
-        "date_string": "Monday\n\t\t\t23. March\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/she-2025/2026/03/23/1800/tickets"
-    },
-    {
         "title_orig": "Dancing with the Bear",
         "title_en": "Dancing with the Bear",
         "date_string": "Tuesday\n\t\t\t24. March\n\t\t\t17:45\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
@@ -106,5 +100,11 @@
         "title_en": "The Stranger",
         "date_string": "Sunday\n\t\t\t19. April\n\t\t\t20:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/the-stranger-2025/2026/04/19/2000/tickets"
+    },
+    {
+        "title_orig": "Ashes and Diamonds",
+        "title_en": "Ashes and Diamonds",
+        "date_string": "Wednesday\n\t\t\t22. April\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/ashes-and-diamonds-1958/2026/04/22/1800/tickets"
     }
 ]
