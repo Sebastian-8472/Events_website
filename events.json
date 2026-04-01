@@ -1,11 +1,5 @@
 [
     {
-        "title_orig": "The Voice of Hind Rajab",
-        "title_en": "The Voice of Hind Rajab",
-        "date_string": "Tuesday\n\t\t\t31. March\n\t\t\t15:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/the-voice-of-hind-rajab-2025/2026/03/31/1530/tickets"
-    },
-    {
         "title_orig": "Mr. Nobody Against Putin",
         "title_en": "Mr. Nobody Against Putin",
         "date_string": "Thursday\n\t\t\t2. April\n\t\t\t18:04\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
@@ -36,16 +30,52 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/the-voice-of-hind-rajab-2025/2026/04/06/2000/tickets"
     },
     {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Tuesday\n\t\t\t7. April\n\t\t\t15:15\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/04/07/1515/tickets"
+    },
+    {
         "title_orig": "Short movies nominated for Oscar 2026 - Animation",
         "title_en": "Short movies nominated for Oscar 2026 - Animation",
         "date_string": "Tuesday\n\t\t\t7. April\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/short-movies-nominated-for-oscar-2026-animation-2025/2026/04/07/1800/tickets"
     },
     {
+        "title_orig": "Poberta",
+        "title_en": "Bertha",
+        "date_string": "Tuesday\n\t\t\t7. April\n\t\t\t20:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/poberta-2026/2026/04/07/2000/tickets"
+    },
+    {
         "title_orig": "Short movies nominated for Oscar 2026 - Live Action",
         "title_en": "Short movies nominated for Oscar 2026 - Live Action",
         "date_string": "Wednesday\n\t\t\t8. April\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/short-movies-nominated-for-oscar-2026-live-action-2025/2026/04/08/1800/tickets"
+    },
+    {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Wednesday\n\t\t\t8. April\n\t\t\t20:34\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/04/08/2034/tickets"
+    },
+    {
+        "title_orig": "Champion",
+        "title_en": "Champion",
+        "date_string": "Friday\n\t\t\t10. April\n\t\t\t15:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/champion-2026/2026/04/10/1500/tickets"
+    },
+    {
+        "title_orig": "Flood",
+        "title_en": "Flood",
+        "date_string": "Friday\n\t\t\t10. April\n\t\t\t20:34\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/flood-2025/2026/04/10/2034/tickets"
+    },
+    {
+        "title_orig": "Mr. Nobody Against Putin",
+        "title_en": "Mr. Nobody Against Putin",
+        "date_string": "Sunday\n\t\t\t12. April\n\t\t\t18:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/mr-nobody-against-putin-2025/2026/04/12/1800/tickets"
     },
     {
         "title_orig": "Dracula",
