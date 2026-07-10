@@ -1,9 +1,27 @@
 [
     {
+        "title_orig": "Flow",
+        "title_en": "Flow",
+        "date_string": "Tuesday\n\t\t\t14. July\n\t\t\t15:30\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/flow-2024/2026/07/14/1530/tickets"
+    },
+    {
+        "title_orig": "Filmový audiokvíz",
+        "title_en": "Movie audio quiz",
+        "date_string": "Friday\n\t\t\t17. July\n\t\t\t18:30\n\t\t\t\t\t\t\t· Zahrádka Café Art",
+        "ticket_url": "https://www.kinoart.cz/en/movies/filmovy-audiokviz-2026/2026/07/17/1830/tickets"
+    },
+    {
         "title_orig": "Rebels",
         "title_en": "Rebels",
         "date_string": "Friday\n\t\t\t17. July\n\t\t\t21:30\n\t\t\t\t\t\t\t· Garden Of The Löw-Beer Villa Summer Cinema",
         "ticket_url": "https://www.kinoart.cz/en/movies/rebels-2001/2026/07/17/2130/tickets"
+    },
+    {
+        "title_orig": "Filmový audiokvíz",
+        "title_en": "Movie audio quiz",
+        "date_string": "Friday\n\t\t\t31. July\n\t\t\t18:30\n\t\t\t\t\t\t\t· Garden Of The Löw-Beer Villa Summer Cinema",
+        "ticket_url": "No link found"
     },
     {
         "title_orig": "A Pint of Ink",
