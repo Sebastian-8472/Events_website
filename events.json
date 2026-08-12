@@ -1,11 +1,5 @@
 [
     {
-        "title_orig": "A Pint of Ink",
-        "title_en": "A Pint of Ink",
-        "date_string": "Tuesday\n\t\t\t11. August\n\t\t\t18:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/a-pint-of-ink-2026/2026/08/11/1830/tickets"
-    },
-    {
         "title_orig": "Public Space of František Skála",
         "title_en": "Public Space of František Skála",
         "date_string": "Wednesday\n\t\t\t12. August\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -34,5 +28,41 @@
         "title_en": "Goodbye, 20th Century",
         "date_string": "Saturday\n\t\t\t15. August\n\t\t\t20:15\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/goodbye-20th-century-1998/2026/08/15/2015/tickets"
+    },
+    {
+        "title_orig": "Only Beautiful Things to Look At",
+        "title_en": "Only Beautiful Things to Look At",
+        "date_string": "Monday\n\t\t\t17. August\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/only-beautiful-things-to-look-at-2026/2026/08/17/1800/tickets"
+    },
+    {
+        "title_orig": "Public Space of František Skála",
+        "title_en": "Public Space of František Skála",
+        "date_string": "Tuesday\n\t\t\t18. August\n\t\t\t15:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/public-space-of-frantisek-skala-2026/2026/08/18/1530/tickets"
+    },
+    {
+        "title_orig": "Five plums",
+        "title_en": "Five plums",
+        "date_string": "Wednesday\n\t\t\t19. August\n\t\t\t15:15\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/five-plums-2026/2026/08/19/1515/tickets"
+    },
+    {
+        "title_orig": "Public Space of František Skála",
+        "title_en": "Public Space of František Skála",
+        "date_string": "Wednesday\n\t\t\t19. August\n\t\t\t17:45\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/public-space-of-frantisek-skala-2026/2026/08/19/1745/tickets"
+    },
+    {
+        "title_orig": "Only Beautiful Things to Look At",
+        "title_en": "Only Beautiful Things to Look At",
+        "date_string": "Thursday\n\t\t\t20. August\n\t\t\t15:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/only-beautiful-things-to-look-at-2026/2026/08/20/1500/tickets"
+    },
+    {
+        "title_orig": "Public Space of František Skála",
+        "title_en": "Public Space of František Skála",
+        "date_string": "Sunday\n\t\t\t23. August\n\t\t\t20:15\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/public-space-of-frantisek-skala-2026/2026/08/23/2015/tickets"
     }
 ]
