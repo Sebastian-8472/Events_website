@@ -1,11 +1,5 @@
 [
     {
-        "title_orig": "Only Beautiful Things to Look At",
-        "title_en": "Only Beautiful Things to Look At",
-        "date_string": "Monday\n\t\t\t24. August\n\t\t\t15:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/only-beautiful-things-to-look-at-2026/2026/08/24/1500/tickets"
-    },
-    {
         "title_orig": "Everything As It Should Be",
         "title_en": "Everything As It Should Be",
         "date_string": "Thursday\n\t\t\t27. August\n\t\t\t10:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -34,5 +28,23 @@
         "title_en": "Only Beautiful Things to Look At",
         "date_string": "Sunday\n\t\t\t30. August\n\t\t\t20:30\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/only-beautiful-things-to-look-at-2026/2026/08/30/2030/tickets"
+    },
+    {
+        "title_orig": "Stardust: A Story of Love and Architecture | with director",
+        "title_en": "Stardust: A Story of Love and Architecture © with director",
+        "date_string": "Thursday\n\t\t\t1. October\n\t\t\t18:00\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/programme/stardust-a-story-of-love-and-architecture-with-director/2026/10/01/1800/tickets"
+    },
+    {
+        "title_orig": "The Silo and Us",
+        "title_en": "The Silo and Us",
+        "date_string": "Saturday\n\t\t\t3. October\n\t\t\t20:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-silo-and-us-2026/2026/10/03/2000/tickets"
+    },
+    {
+        "title_orig": "Living Together: The Story of De Warren",
+        "title_en": "Living Together: The Story of De Warren",
+        "date_string": "Sunday\n\t\t\t4. October\n\t\t\t20:00\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/living-together-the-story-of-de-warren-2023/2026/10/04/2000/tickets"
     }
 ]
