@@ -60,9 +60,141 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/living-together-the-story-of-de-warren-2023/2026/10/04/2000/tickets"
     },
     {
+        "title_orig": "Light Pillar",
+        "title_en": "Light Pillar",
+        "date_string": "Monday\n\t\t\tOctober 5\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/light-pillar-2026/2026/10/05/1745/tickets"
+    },
+    {
+        "title_orig": "The Student Sci-Fi Film Competition",
+        "title_en": "The Student Sci-Fi Film Competition",
+        "date_string": "Monday\n\t\t\tOctober 5\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-student-sci-fi-film-competition-2026/2026/10/05/2015/tickets"
+    },
+    {
+        "title_orig": "You Are the Film",
+        "title_en": "♪ You are the movie ♪",
+        "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/you-are-the-film-2026/2026/10/06/1745/tickets"
+    },
+    {
+        "title_orig": "Junk World",
+        "title_en": "Junk World",
+        "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/programme/junk-world-discussion-with-the-films-director/2026/10/06/2030/tickets"
+    },
+    {
+        "title_orig": "Crocodile",
+        "title_en": "Crocodile",
+        "date_string": "Wednesday\n\t\t\tOctober 7\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/crocodile-2026/2026/10/07/1745/tickets"
+    },
+    {
+        "title_orig": "Colony",
+        "title_en": "Colony",
+        "date_string": "Wednesday\n\t\t\tOctober 7\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/colony-2026/2026/10/07/2030/tickets"
+    },
+    {
+        "title_orig": "The Student Sci-Fi Film Competition",
+        "title_en": "The Student Sci-Fi Film Competition",
+        "date_string": "Friday\n\t\t\tOctober 9\n\t\t\t4:00 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-student-sci-fi-film-competition-2026/2026/10/09/1600/tickets"
+    },
+    {
+        "title_orig": "Fukushima: A Nuclear Nightmare",
+        "title_en": "A Nuclear Nightmare",
+        "date_string": "Friday\n\t\t\tOctober 9\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/fukushima-a-nuclear-nightmare-2026/2026/10/09/2015/tickets"
+    },
+    {
+        "title_orig": "A Report for Minerva 2",
+        "title_en": "A Report for Minerva 2",
+        "date_string": "Saturday\n\t\t\tOctober 10\n\t\t\t6:30 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/a-report-for-minerva-2-2026/2026/10/10/1830/tickets"
+    },
+    {
         "title_orig": "The Fountain for Suzanne",
         "title_en": "The Fountain for Suzanne",
         "date_string": "Wednesday\n\t\t\tOctober 21\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/the-fountain-for-suzanne-1986/2026/10/21/2030/tickets"
+    },
+    {
+        "title_orig": "Treasure of Silver Lake",
+        "title_en": "Treasure of Silver Lake",
+        "date_string": "Sunday\n\t\t\tOctober 25\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/treasure-of-silver-lake-1962/2026/10/25/1800/tickets"
+    },
+    {
+        "title_orig": "Altweibersommer",
+        "title_en": "Altweibersommer",
+        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/altweibersommer-2025/2026/10/26/1745/tickets"
+    },
+    {
+        "title_orig": "Rose",
+        "title_en": "Rose",
+        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/rose-2026/2026/10/26/2000/tickets"
+    },
+    {
+        "title_orig": "Late Shift",
+        "title_en": "Late Shift",
+        "date_string": "Tuesday\n\t\t\tOctober 27\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/late-shift-2025/2026/10/27/1800/tickets"
+    },
+    {
+        "title_orig": "Prosecution",
+        "title_en": "Prosecution",
+        "date_string": "Tuesday\n\t\t\tOctober 27\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/prosecution-2026/2026/10/27/2030/tickets"
+    },
+    {
+        "title_orig": "Ingeborg Bachmann",
+        "title_en": "Ingeborg Bachmann",
+        "date_string": "Wednesday\n\t\t\tOctober 28\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/ingeborg-bachmann-2026/2026/10/28/1800/tickets"
+    },
+    {
+        "title_orig": "Gentle Monster",
+        "title_en": "Gentle Monster",
+        "date_string": "Wednesday\n\t\t\tOctober 28\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/gentle-monster-2026/2026/10/28/2030/tickets"
+    },
+    {
+        "title_orig": "Silent Friend",
+        "title_en": "Silent Friend",
+        "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/silent-friend-2025/2026/10/29/1730/tickets"
+    },
+    {
+        "title_orig": "Phantoms of July",
+        "title_en": "Phantoms of July",
+        "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/phantoms-of-july-2025/2026/10/29/1745/tickets"
+    },
+    {
+        "title_orig": "Ah, This Gap, This Appalling Gap",
+        "title_en": "Ah, This Gap, This Appalling Gap",
+        "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/ah-this-gap-this-appalling-gap-2026/2026/10/29/2015/tickets"
+    },
+    {
+        "title_orig": "Rose",
+        "title_en": "Rose",
+        "date_string": "Friday\n\t\t\tOctober 30\n\t\t\t3:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/rose-2026/2026/10/30/1530/tickets"
+    },
+    {
+        "title_orig": "22 Lengths",
+        "title_en": "22 Lengths",
+        "date_string": "Friday\n\t\t\tOctober 30\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/22-lengths-2025/2026/10/30/1800/tickets"
+    },
+    {
+        "title_orig": "Wolves",
+        "title_en": "Wolves",
+        "date_string": "Friday\n\t\t\tOctober 30\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wolves-2025/2026/10/30/2015/tickets"
     }
 ]
