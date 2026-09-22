@@ -60,6 +60,36 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/09/28/1800/tickets"
     },
     {
+        "title_orig": "A Pint of Ink",
+        "title_en": "A Pint of Ink",
+        "date_string": "Tuesday\n\t\t\tSeptember 29\n\t\t\t3:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/a-pint-of-ink-2026/2026/09/29/1515/tickets"
+    },
+    {
+        "title_orig": "Bára - Diary of a Rockstar",
+        "title_en": "Bára - Diary of a Rockstar",
+        "date_string": "Tuesday\n\t\t\tSeptember 29\n\t\t\t3:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/bara-diary-of-a-rockstar-2026/2026/09/29/1530/tickets"
+    },
+    {
+        "title_orig": "Chica Checa",
+        "title_en": "Chicago Checa",
+        "date_string": "Wednesday\n\t\t\tSeptember 30\n\t\t\t3:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/09/30/1530/tickets"
+    },
+    {
+        "title_orig": "If Pigeons Turned to Gold",
+        "title_en": "If Pigeons Turned to Gold",
+        "date_string": "Wednesday\n\t\t\tSeptember 30\n\t\t\t8:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/09/30/2004/tickets"
+    },
+    {
+        "title_orig": "Chica Checa",
+        "title_en": "Chicago Checa",
+        "date_string": "Thursday\n\t\t\tOctober 1\n\t\t\t10:00 Am\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/10/01/1000/tickets"
+    },
+    {
         "title_orig": "Stardust: A Story of Love and Architecture | with director",
         "title_en": "Stardust: A Story of Love and Architecture © with director",
         "date_string": "Thursday\n\t\t\tOctober 1\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -72,16 +102,34 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/02/2000/tickets"
     },
     {
+        "title_orig": "Chica Checa",
+        "title_en": "Chicago Checa",
+        "date_string": "Friday\n\t\t\tOctober 2\n\t\t\t8:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/10/02/2004/tickets"
+    },
+    {
         "title_orig": "The Silo and Us",
         "title_en": "The Silo and Us",
         "date_string": "Saturday\n\t\t\tOctober 3\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/the-silo-and-us-2026/2026/10/03/2000/tickets"
     },
     {
+        "title_orig": "Public Space of František Skála",
+        "title_en": "Public Space of František Skála",
+        "date_string": "Saturday\n\t\t\tOctober 3\n\t\t\t6:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/public-space-of-frantisek-skala-2026/2026/10/03/1804/tickets"
+    },
+    {
         "title_orig": "Living Together: The Story of De Warren",
         "title_en": "Living Together: The Story of De Warren",
         "date_string": "Sunday\n\t\t\tOctober 4\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/living-together-the-story-of-de-warren-2023/2026/10/04/2000/tickets"
+    },
+    {
+        "title_orig": "A Pint of Ink",
+        "title_en": "A Pint of Ink",
+        "date_string": "Sunday\n\t\t\tOctober 4\n\t\t\t6:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/a-pint-of-ink-2026/2026/10/04/1804/tickets"
     },
     {
         "title_orig": "Light Pillar",
@@ -190,18 +238,6 @@
         "title_en": "Silent Friend",
         "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/silent-friend-2025/2026/10/29/1730/tickets"
-    },
-    {
-        "title_orig": "Phantoms of July",
-        "title_en": "Phantoms of July",
-        "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/phantoms-of-july-2025/2026/10/29/1745/tickets"
-    },
-    {
-        "title_orig": "Ah, This Gap, This Appalling Gap",
-        "title_en": "Ah, This Gap, This Appalling Gap",
-        "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/ah-this-gap-this-appalling-gap-2026/2026/10/29/2015/tickets"
     },
     {
         "title_orig": "Rose",
