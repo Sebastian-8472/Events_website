@@ -1,11 +1,5 @@
 [
     {
-        "title_orig": "Public Space of František Skála",
-        "title_en": "Public Space of František Skála",
-        "date_string": "Friday\n\t\t\tSeptember 25\n\t\t\t3:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/public-space-of-frantisek-skala-2026/2026/09/25/1515/tickets"
-    },
-    {
         "title_orig": "Born in the Jungle",
         "title_en": "Born in the Jungle",
         "date_string": "Sunday\n\t\t\tSeptember 27\n\t\t\t3:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -118,6 +112,12 @@
         "title_en": "♪ You are the movie ♪",
         "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/you-are-the-film-2026/2026/10/06/1745/tickets"
+    },
+    {
+        "title_orig": "If Pigeons Turned to Gold",
+        "title_en": "If Pigeons Turned to Gold",
+        "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/06/1800/tickets"
     },
     {
         "title_orig": "Junk World",
