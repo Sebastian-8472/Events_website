@@ -2,18 +2,6 @@
     {
         "title_orig": "Chica Checa",
         "title_en": "Chicago Checa",
-        "date_string": "Wednesday\n\t\t\tSeptember 30\n\t\t\t3:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/09/30/1530/tickets"
-    },
-    {
-        "title_orig": "If Pigeons Turned to Gold",
-        "title_en": "If Pigeons Turned to Gold",
-        "date_string": "Wednesday\n\t\t\tSeptember 30\n\t\t\t8:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
-        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/09/30/2004/tickets"
-    },
-    {
-        "title_orig": "Chica Checa",
-        "title_en": "Chicago Checa",
         "date_string": "Thursday\n\t\t\tOctober 1\n\t\t\t10:00 Am\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/10/01/1000/tickets"
     },
@@ -102,6 +90,12 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/colony-2026/2026/10/07/2030/tickets"
     },
     {
+        "title_orig": "Bára - Diary of a Rockstar",
+        "title_en": "Bára - Diary of a Rockstar",
+        "date_string": "Friday\n\t\t\tOctober 9\n\t\t\t3:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/bara-diary-of-a-rockstar-2026/2026/10/09/1500/tickets"
+    },
+    {
         "title_orig": "The Student Sci-Fi Film Competition",
         "title_en": "The Student Sci-Fi Film Competition",
         "date_string": "Friday\n\t\t\tOctober 9\n\t\t\t4:00 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
@@ -114,10 +108,28 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/fukushima-a-nuclear-nightmare-2026/2026/10/09/2015/tickets"
     },
     {
+        "title_orig": "Because I Have To",
+        "title_en": "Because I Have To",
+        "date_string": "Friday\n\t\t\tOctober 9\n\t\t\t6:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/because-i-have-to-2026/2026/10/09/1804/tickets"
+    },
+    {
+        "title_orig": "Wirbel",
+        "title_en": "Wirbel",
+        "date_string": "Saturday\n\t\t\tOctober 10\n\t\t\t4:30 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/10/10/1630/tickets"
+    },
+    {
         "title_orig": "A Report for Minerva 2",
         "title_en": "A Report for Minerva 2",
         "date_string": "Saturday\n\t\t\tOctober 10\n\t\t\t6:30 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/a-report-for-minerva-2-2026/2026/10/10/1830/tickets"
+    },
+    {
+        "title_orig": "If Pigeons Turned to Gold",
+        "title_en": "If Pigeons Turned to Gold",
+        "date_string": "Sunday\n\t\t\tOctober 11\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/11/1730/tickets"
     },
     {
         "title_orig": "The Fountain for Suzanne",
