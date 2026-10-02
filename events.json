@@ -1,17 +1,5 @@
 [
     {
-        "title_orig": "Chica Checa",
-        "title_en": "Chicago Checa",
-        "date_string": "Thursday\n\t\t\tOctober 1\n\t\t\t10:00 Am\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/10/01/1000/tickets"
-    },
-    {
-        "title_orig": "Stardust: A Story of Love and Architecture | with director",
-        "title_en": "Stardust: A Story of Love and Architecture © with director",
-        "date_string": "Thursday\n\t\t\tOctober 1\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/programme/stardust-a-story-of-love-and-architecture-with-director/2026/10/01/1800/tickets"
-    },
-    {
         "title_orig": "If Pigeons Turned to Gold",
         "title_en": "If Pigeons Turned to Gold",
         "date_string": "Friday\n\t\t\tOctober 2\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -132,6 +120,12 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/11/1730/tickets"
     },
     {
+        "title_orig": "Naza",
+        "title_en": "Naza",
+        "date_string": "Monday\n\t\t\tOctober 12\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/naza-2026/2026/10/12/1800/tickets"
+    },
+    {
         "title_orig": "The Fountain for Suzanne",
         "title_en": "The Fountain for Suzanne",
         "date_string": "Wednesday\n\t\t\tOctober 21\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -202,5 +196,29 @@
         "title_en": "Wolves",
         "date_string": "Friday\n\t\t\tOctober 30\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/wolves-2025/2026/10/30/2015/tickets"
+    },
+    {
+        "title_orig": "Godzilla Minus Zero",
+        "title_en": "Godzilla Minus Zero",
+        "date_string": "Thursday\n\t\t\tNovember 5\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "No link found"
+    },
+    {
+        "title_orig": "Godzilla Minus Zero",
+        "title_en": "Godzilla Minus Zero",
+        "date_string": "Sunday\n\t\t\tNovember 15\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "No link found"
+    },
+    {
+        "title_orig": "Godzilla Minus Zero",
+        "title_en": "Godzilla Minus Zero",
+        "date_string": "Wednesday\n\t\t\tNovember 25\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "No link found"
+    },
+    {
+        "title_orig": "Godzilla Minus Zero",
+        "title_en": "Godzilla Minus Zero",
+        "date_string": "Tuesday\n\t\t\tDecember 1\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "No link found"
     }
 ]
