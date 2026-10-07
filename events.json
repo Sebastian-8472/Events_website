@@ -1,23 +1,5 @@
 [
     {
-        "title_orig": "You Are the Film",
-        "title_en": "♪ You are the movie ♪",
-        "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/you-are-the-film-2026/2026/10/06/1745/tickets"
-    },
-    {
-        "title_orig": "If Pigeons Turned to Gold",
-        "title_en": "If Pigeons Turned to Gold",
-        "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/06/1800/tickets"
-    },
-    {
-        "title_orig": "Junk World",
-        "title_en": "Junk World",
-        "date_string": "Tuesday\n\t\t\tOctober 6\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/programme/junk-world-discussion-with-the-films-director/2026/10/06/2030/tickets"
-    },
-    {
         "title_orig": "Crocodile",
         "title_en": "Crocodile",
         "date_string": "Wednesday\n\t\t\tOctober 7\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
@@ -153,24 +135,30 @@
         "title_orig": "Godzilla Minus Zero",
         "title_en": "Godzilla Minus Zero",
         "date_string": "Thursday\n\t\t\tNovember 5\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "No link found"
+        "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/11/05/2030/tickets"
     },
     {
         "title_orig": "Godzilla Minus Zero",
         "title_en": "Godzilla Minus Zero",
         "date_string": "Sunday\n\t\t\tNovember 15\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "No link found"
+        "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/11/15/1730/tickets"
     },
     {
         "title_orig": "Godzilla Minus Zero",
         "title_en": "Godzilla Minus Zero",
         "date_string": "Wednesday\n\t\t\tNovember 25\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "No link found"
+        "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/11/25/2030/tickets"
     },
     {
         "title_orig": "Godzilla Minus Zero",
         "title_en": "Godzilla Minus Zero",
         "date_string": "Tuesday\n\t\t\tDecember 1\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "No link found"
+        "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/12/01/2000/tickets"
+    },
+    {
+        "title_orig": "Bal-Can-Can",
+        "title_en": "Bal-Can-Can",
+        "date_string": "Saturday\n\t\t\tMarch 13 2027\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/bal-can-can-2005/2027/03/13/2015/tickets"
     }
 ]
