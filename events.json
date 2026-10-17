@@ -114,6 +114,12 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/wolves-2025/2026/10/30/2015/tickets"
     },
     {
+        "title_orig": "Everytime",
+        "title_en": "Everytime",
+        "date_string": "Saturday\n\t\t\tOctober 31\n\t\t\t5:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/everytime-2026/2026/10/31/1700/tickets"
+    },
+    {
         "title_orig": "Godzilla Minus Zero",
         "title_en": "Godzilla Minus Zero",
         "date_string": "Thursday\n\t\t\tNovember 5\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -130,6 +136,12 @@
         "title_en": "Godzilla Minus Zero",
         "date_string": "Wednesday\n\t\t\tNovember 25\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/11/25/2030/tickets"
+    },
+    {
+        "title_orig": "Still Standing, Still Stuffed",
+        "title_en": "Still Standing, Still Stuffed",
+        "date_string": "Thursday\n\t\t\tNovember 26\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/still-standing-still-stuffed-2026/2026/11/26/2015/tickets"
     },
     {
         "title_orig": "Godzilla Minus Zero",
