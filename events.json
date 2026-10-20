@@ -1,17 +1,5 @@
 [
     {
-        "title_orig": "Bára - Diary of a Rockstar",
-        "title_en": "Bára - Diary of a Rockstar",
-        "date_string": "Monday\n\t\t\tOctober 19\n\t\t\t3:15 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/bara-diary-of-a-rockstar-2026/2026/10/19/1515/tickets"
-    },
-    {
-        "title_orig": "If Pigeons Turned to Gold",
-        "title_en": "If Pigeons Turned to Gold",
-        "date_string": "Monday\n\t\t\tOctober 19\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/19/1800/tickets"
-    },
-    {
         "title_orig": "Wirbel",
         "title_en": "Wirbel",
         "date_string": "Wednesday\n\t\t\tOctober 21\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
@@ -22,6 +10,12 @@
         "title_en": "The Fountain for Suzanne",
         "date_string": "Wednesday\n\t\t\tOctober 21\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/the-fountain-for-suzanne-1986/2026/10/21/2030/tickets"
+    },
+    {
+        "title_orig": "Father",
+        "title_en": "Father",
+        "date_string": "Thursday\n\t\t\tOctober 22\n\t\t\t5:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/father-2025/2026/10/22/1700/tickets"
     },
     {
         "title_orig": "If Pigeons Turned to Gold",
@@ -126,10 +120,46 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/11/05/2030/tickets"
     },
     {
+        "title_orig": "Gugu's World",
+        "title_en": "Gugu's World",
+        "date_string": "Friday\n\t\t\tNovember 13\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/gugus-world-2026/2026/11/13/1800/tickets"
+    },
+    {
+        "title_orig": "The Passion According to G.H.B.",
+        "title_en": "The Passion Recording to G.H.B.",
+        "date_string": "Saturday\n\t\t\tNovember 14\n\t\t\t11:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/the-passion-according-to-ghb-2026/2026/11/14/2300/tickets"
+    },
+    {
         "title_orig": "Godzilla Minus Zero",
         "title_en": "Godzilla Minus Zero",
         "date_string": "Sunday\n\t\t\tNovember 15\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/godzilla-minus-zero-2026/2026/11/15/1730/tickets"
+    },
+    {
+        "title_orig": "Little Tragedies",
+        "title_en": "Little Tragedies",
+        "date_string": "Monday\n\t\t\tNovember 16\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/little-tragedies-2026/2026/11/16/1800/tickets"
+    },
+    {
+        "title_orig": "Jim Queen",
+        "title_en": "Jim Queen",
+        "date_string": "Monday\n\t\t\tNovember 16\n\t\t\t11:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/jim-queen-2026/2026/11/16/2300/tickets"
+    },
+    {
+        "title_orig": "Coward",
+        "title_en": "Coward",
+        "date_string": "Wednesday\n\t\t\tNovember 18\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/coward-2026/2026/11/18/2030/tickets"
+    },
+    {
+        "title_orig": "Different from the Others (1919) with Live Music",
+        "title_en": "Different from the Others (1919) with Live Music",
+        "date_string": "Thursday\n\t\t\tNovember 19\n\t\t\t7:00 Pm\n\t\t\t\t\t\t\t· Prison In Cejl Street",
+        "ticket_url": "https://www.kinoart.cz/en/programme/different-from-the-others-1919-with-live-music/2026/11/19/1900/tickets"
     },
     {
         "title_orig": "Godzilla Minus Zero",
