@@ -42,6 +42,12 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/treasure-of-silver-lake-1962/2026/10/25/1800/tickets"
     },
     {
+        "title_orig": "If Pigeons Turned to Gold",
+        "title_en": "If Pigeons Turned to Gold",
+        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t3:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/26/1500/tickets"
+    },
+    {
         "title_orig": "Altweibersommer",
         "title_en": "Altweibersommer",
         "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
@@ -78,6 +84,12 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/ingeborg-bachmann-2026/2026/10/28/1800/tickets"
     },
     {
+        "title_orig": "Chica Checa",
+        "title_en": "Chicago Checa",
+        "date_string": "Wednesday\n\t\t\tOctober 28\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/chica-checa-2026/2026/10/28/2015/tickets"
+    },
+    {
         "title_orig": "Gentle Monster",
         "title_en": "Gentle Monster",
         "date_string": "Wednesday\n\t\t\tOctober 28\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -108,10 +120,40 @@
         "ticket_url": "https://www.kinoart.cz/en/movies/wolves-2025/2026/10/30/2015/tickets"
     },
     {
+        "title_orig": "Wirbel",
+        "title_en": "Wirbel",
+        "date_string": "Friday\n\t\t\tOctober 30\n\t\t\t6:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/10/30/1804/tickets"
+    },
+    {
         "title_orig": "Everytime",
         "title_en": "Everytime",
         "date_string": "Saturday\n\t\t\tOctober 31\n\t\t\t5:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/everytime-2026/2026/10/31/1700/tickets"
+    },
+    {
+        "title_orig": "Wirbel",
+        "title_en": "Wirbel",
+        "date_string": "Sunday\n\t\t\tNovember 1\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/11/01/2015/tickets"
+    },
+    {
+        "title_orig": "If Pigeons Turned to Gold",
+        "title_en": "If Pigeons Turned to Gold",
+        "date_string": "Monday\n\t\t\tNovember 2\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/11/02/1730/tickets"
+    },
+    {
+        "title_orig": "Public Space of František Skála",
+        "title_en": "Public Space of František Skála",
+        "date_string": "Tuesday\n\t\t\tNovember 3\n\t\t\t3:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/public-space-of-frantisek-skala-2026/2026/11/03/1515/tickets"
+    },
+    {
+        "title_orig": "Up Again",
+        "title_en": "Up Again",
+        "date_string": "Tuesday\n\t\t\tNovember 3\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/up-again-2026/2026/11/03/1800/tickets"
     },
     {
         "title_orig": "Godzilla Minus Zero",
