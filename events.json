@@ -1,29 +1,5 @@
 [
     {
-        "title_orig": "If Pigeons Turned to Gold",
-        "title_en": "If Pigeons Turned to Gold",
-        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t3:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/if-pigeons-turned-to-gold-2026/2026/10/26/1500/tickets"
-    },
-    {
-        "title_orig": "Altweibersommer",
-        "title_en": "Altweibersommer",
-        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/altweibersommer-2025/2026/10/26/1745/tickets"
-    },
-    {
-        "title_orig": "Naza",
-        "title_en": "Naza",
-        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/naza-2026/2026/10/26/1800/tickets"
-    },
-    {
-        "title_orig": "Rose",
-        "title_en": "Rose",
-        "date_string": "Monday\n\t\t\tOctober 26\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/rose-2026/2026/10/26/2000/tickets"
-    },
-    {
         "title_orig": "Late Shift",
         "title_en": "Late Shift",
         "date_string": "Tuesday\n\t\t\tOctober 27\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -52,12 +28,6 @@
         "title_en": "Gentle Monster",
         "date_string": "Wednesday\n\t\t\tOctober 28\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/gentle-monster-2026/2026/10/28/2030/tickets"
-    },
-    {
-        "title_orig": "Silent Friend",
-        "title_en": "Silent Friend",
-        "date_string": "Thursday\n\t\t\tOctober 29\n\t\t\t5:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/silent-friend-2025/2026/10/29/1730/tickets"
     },
     {
         "title_orig": "Rose",
