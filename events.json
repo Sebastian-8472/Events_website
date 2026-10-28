@@ -1,17 +1,5 @@
 [
     {
-        "title_orig": "Late Shift",
-        "title_en": "Late Shift",
-        "date_string": "Tuesday\n\t\t\tOctober 27\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/late-shift-2025/2026/10/27/1800/tickets"
-    },
-    {
-        "title_orig": "Prosecution",
-        "title_en": "Prosecution",
-        "date_string": "Tuesday\n\t\t\tOctober 27\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/prosecution-2026/2026/10/27/2030/tickets"
-    },
-    {
         "title_orig": "Ingeborg Bachmann",
         "title_en": "Ingeborg Bachmann",
         "date_string": "Wednesday\n\t\t\tOctober 28\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
@@ -136,6 +124,12 @@
         "title_en": "Coward",
         "date_string": "Wednesday\n\t\t\tNovember 18\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/coward-2026/2026/11/18/2030/tickets"
+    },
+    {
+        "title_orig": "Comédie-Française",
+        "title_en": "Comédie-Française",
+        "date_string": "Thursday\n\t\t\tNovember 19\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/comedie-francaise-2026/2026/11/19/1800/tickets"
     },
     {
         "title_orig": "Different from the Others (1919) with Live Music",
