@@ -2,12 +2,6 @@
     {
         "title_orig": "Wirbel",
         "title_en": "Wirbel",
-        "date_string": "Tuesday\n\t\t\tNovember 10\n\t\t\t6:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/11/10/1815/tickets"
-    },
-    {
-        "title_orig": "Wirbel",
-        "title_en": "Wirbel",
         "date_string": "Wednesday\n\t\t\tNovember 11\n\t\t\t3:30 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/11/11/1530/tickets"
     },
@@ -82,6 +76,60 @@
         "title_en": "Still Standing, Still Stuffed",
         "date_string": "Thursday\n\t\t\tNovember 26\n\t\t\t8:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/still-standing-still-stuffed-2026/2026/11/26/2015/tickets"
+    },
+    {
+        "title_orig": "Gregorius, the Chosen One",
+        "title_en": "Gregorius, the Chosen One",
+        "date_string": "Wednesday\n\t\t\tDecember 2\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/gregorius-the-chosen-one-2026/2026/12/02/1745/tickets"
+    },
+    {
+        "title_orig": "Chungking Express",
+        "title_en": "Chungking Express",
+        "date_string": "Wednesday\n\t\t\tJanuary 6 2027\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/chungking-express-1994/2027/01/06/1800/tickets"
+    },
+    {
+        "title_orig": "Good Trip",
+        "title_en": "Good Trip",
+        "date_string": "Wednesday\n\t\t\tJanuary 6 2027\n\t\t\t8:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/good-trip-2026/2027/01/06/2000/tickets"
+    },
+    {
+        "title_orig": "Audition",
+        "title_en": "Audition",
+        "date_string": "Friday\n\t\t\tJanuary 8 2027\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/audition-1999/2027/01/08/2030/tickets"
+    },
+    {
+        "title_orig": "A Better Tomorrow",
+        "title_en": "A Better Tomorrow",
+        "date_string": "Tuesday\n\t\t\tJanuary 12 2027\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/a-better-tomorrow-1986/2027/01/12/2030/tickets"
+    },
+    {
+        "title_orig": "Montages of a Modern Motherhood",
+        "title_en": "Montages of a Modern Motherhood",
+        "date_string": "Friday\n\t\t\tJanuary 15 2027\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/montages-of-a-modern-motherhood-2024/2027/01/15/2030/tickets"
+    },
+    {
+        "title_orig": "Fallen Angels",
+        "title_en": "Fallen Angels",
+        "date_string": "Wednesday\n\t\t\tJanuary 20 2027\n\t\t\t6:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/fallen-angels-1995/2027/01/20/1830/tickets"
+    },
+    {
+        "title_orig": "Train to Busan",
+        "title_en": "Train to Busan",
+        "date_string": "Wednesday\n\t\t\tJanuary 20 2027\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/train-to-busan-2016/2027/01/20/2030/tickets"
+    },
+    {
+        "title_orig": "Hard Boiled",
+        "title_en": "Hard Boiled",
+        "date_string": "Saturday\n\t\t\tJanuary 23 2027\n\t\t\t8:30 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/hard-boiled-1992/2027/01/23/2030/tickets"
     },
     {
         "title_orig": "Bal-Can-Can",
