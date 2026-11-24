@@ -1,11 +1,5 @@
 [
     {
-        "title_orig": "Changes",
-        "title_en": "Changes",
-        "date_string": "Monday\n\t\t\tNovember 23\n\t\t\t3:00 Pm\n\t\t\t\t\t\t\t· Main Screening Hall, Cihlářská 19",
-        "ticket_url": "https://www.kinoart.cz/en/movies/changes-2026/2026/11/23/1500/tickets"
-    },
-    {
         "title_orig": "Homeless Blues (with english subtitles)",
         "title_en": "Homeless Blues (with english subtitles)",
         "date_string": "Wednesday\n\t\t\tNovember 25\n\t\t\t6:00 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
@@ -34,6 +28,24 @@
         "title_en": "Gregorius, the Chosen One",
         "date_string": "Wednesday\n\t\t\tDecember 2\n\t\t\t5:45 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
         "ticket_url": "https://www.kinoart.cz/en/movies/gregorius-the-chosen-one-2026/2026/12/02/1745/tickets"
+    },
+    {
+        "title_orig": "Wirbel",
+        "title_en": "Wirbel",
+        "date_string": "Wednesday\n\t\t\tDecember 2\n\t\t\t6:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/12/02/1804/tickets"
+    },
+    {
+        "title_orig": "Wirbel",
+        "title_en": "Wirbel",
+        "date_string": "Thursday\n\t\t\tDecember 3\n\t\t\t3:15 Pm\n\t\t\t\t\t\t\t· Small Screening Hall, Cihlářská 19",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/12/03/1515/tickets"
+    },
+    {
+        "title_orig": "Wirbel",
+        "title_en": "Wirbel",
+        "date_string": "Saturday\n\t\t\tDecember 5\n\t\t\t8:04 Pm\n\t\t\t\t\t\t\t· Kino Cit, Radnická 4",
+        "ticket_url": "https://www.kinoart.cz/en/movies/wirbel-2026/2026/12/05/2004/tickets"
     },
     {
         "title_orig": "The Little Mermaid (1976)",
